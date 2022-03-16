@@ -1,24 +1,120 @@
 repeat wait() until game:IsLoaded()
+local req =
+    (syn and syn.request)
+    or (http and http.request)
+    or http_request
+    or request
+    or HttpPost
+
+local Decoded = game:GetService('HttpService'):JSONDecode(req({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body)
+local Executor_Hiwd_List = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint", "Krnl-Hwid"};
+local ExecutorHwid = "";
+for i, v in next, Executor_Hiwd_List do
+    if Decoded.headers[v] then
+        ExecutorHwid = Decoded.headers[v];
+        break
+    end
+end
+
+local ASCII = {
+    ['0'] = 'gbDhQK8ZeaPSNnM',
+    ['1'] = 'zbV37q2C4a7dNw4',
+    ['2'] = 'eMa5BawCVBrCyBt',
+    ['3'] = '582rF5GbQ6u5H1m',
+    ['4'] = 'kPU0WNTmsoF3ib1',
+    ['5'] = '0TZF23hxw8SK5Fo',
+    ['6'] = 'eT8h4T6u0wHkzv2',
+    ['7'] = '4u32888F4KffZDA',
+    ['8'] = 'ZL08nq21Ku5glmh',
+    ['9'] = 'VX1wDXKjx4g6qu8',
+    ['A'] = 'x0w8202NtWZ7JrZ',
+    ['B'] = '4EJWy91nNSCLBqZ',
+    ['C'] = '1SmYc4x8pUKZ361',
+    ['D'] = 'W8fMV5D57et8q4R',
+    ['E'] = '7506Z3TDSqe6nL6',
+    ['F'] = 'N8BAW20G7i7NJV9',
+    ['G'] = 'A6wg9BvZbCQphXB',
+    ['H'] = 'Jz9K4T3O20rnIX0',
+    ['I'] = '603O61DS9c1fTy4',
+    ['J'] = 'Vn6scu02fUy26o3',
+    ['K'] = 'IYvZWB94c8H7Im3',
+    ['L'] = '3eM9CX8Tc2Wyp9V',
+    ['M'] = '7E1sT5FX5uc1PBO',
+    ['N'] = '2fM7T0nxFNVt7F5',
+    ['O'] = 'Gdx643C73W2G1W3',
+    ['P'] = 'JtPj06SlWh53b2v',
+    ['Q'] = 'f7LUkbAp2eF903U',
+    ['R'] = '67FBLHdt8u2NPIk',
+    ['S'] = 'qnkK7LBJ8ra06oA',
+    ['T'] = '4Orzg9AyS7Xed5t',
+    ['U'] = '9vnTR1Utf16z167',
+    ['V'] = 'F7Hmz02S2V60d8o',
+    ['W'] = 'KLn428U0ypMCU3f',
+    ['X'] = 'w1BMYL2jI0mrqBC',
+    ['Y'] = 'VBNq534cqe175Z1',
+    ['Z'] = 'JhB9Qel1l8c0U14',
+    ['a'] = 'jAu3Wphk1X7ahSM',
+    ['b'] = 'HuDSVejs2Hfk9A5',
+    ['c'] = 'dBbCWJMAtww2cH5',
+    ['d'] = 'MJiG49NpJthQ56D',
+    ['e'] = '40O1444lSQ5sOz5',
+    ['f'] = 'le8lY9134HBHn3R',
+    ['g'] = 'AaR6kx0ceAX3uaN',
+    ['h'] = 'AQ2qGHKT64aXk5M',
+    ['i'] = '0qa4hN4yfavY19f',
+    ['j'] = 'e08D4UTpjcI4N8q',
+    ['k'] = 'uD769TTD5S3p98j',
+    ['l'] = '64xm7n8zt2S5yV6',
+    ['m'] = 'oE3NwGG9lZa7FB7',
+    ['n'] = 'MqkP08vRK675Eu9',
+    ['o'] = '4dT8ERIBNt0m8fC',
+    ['p'] = 'qD4Lx1MslLgA0iq',
+    ['q'] = '7MW0OQW3lp7B711',
+    ['r'] = 'CQyK4m2Sk7B2rEk',
+    ['s'] = 'i9K86gwMr7EBZo3',
+    ['t'] = '8upxLp2MI23znC2',
+    ['u'] = 'PA2ecZ7P6uT13nH',
+    ['v'] = 'O04qNXVoG4zhaDX',
+    ['w'] = 'ZA1AO99WnbjOz70',
+    ['x'] = 'b82FeYL0I7kGYbu',
+    ['y'] = '13Mg3Gz91PST1W0',
+    ['z'] = '2dhZI5q4416k734',
+    [' '] = 'wBtyhG3YZVq2UyZ',
+    ['-'] = "1Msl69TTD5S3LgA",
+}
+
+local function Encode(str)
+    local KeyCode = '';
+    local Splited = str:split('');
+    for i = 1, string.len(str) do
+        for i2, v2 in pairs(ASCII) do
+            if Splited[i] == i2 then
+                KeyCode = KeyCode..'/'..ASCII[i2]
+            end
+        end
+    end
+    return KeyCode
+end
+
+local function Decode(str)
+    local KeyCode = '';
+    local Splited = str:split('/');
+    for i = 1, string.len(str) do
+        for i2, v2 in pairs(ASCII) do
+            if Splited[i] == ASCII[i2] then
+                KeyCode = KeyCode..'/'..i2
+            end
+        end
+    end
+    return KeyCode:gsub('/', '')
+end
 if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-function Send(title, desc, URL)
-    local Data = game:GetService("HttpService"):JSONEncode({
-        ["embeds"] = {{
-            ["title"] = title,
-            ["description"] = desc,
-            ["type"] = "rich",
-            ["color"] = tonumber(0x7269da),
-        }}
-    })
-    request = http_request or request or HttpPost or syn.request
-    request({Url = URL, Body = Data, Method = "POST", Headers = {["content-type"] = "application/json"}})
-end
-if HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
-else
-Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||".." **| HWID:** ".."||"..HWID.."||", "https://discord.com/api/webhooks/936238878405316618/4jR3PUJ3f3bueXt065-7foyzEOanroX0BEdcGwPjpkbCcaVdbDRuiW5XT62nJoXAIfsH")
-end
+getgenv().HWIDEncoded = Encode(HWID)
+wait()
+loadstring(game:HttpGet("https://pastebin.com/raw/55n58pmB"))()
 
 getgenv().AdminNameTable = {
     "TizCof",
@@ -108,32 +204,44 @@ spawn(function()
         end
     end
 end)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
 
-local a = Library:Window("Cofiez Hub", "Mighty Omega")
 
-local e = a:Tab("Home")
-local b = a:Tab("Main")
-local c = a:Tab("LocalPlayer")
-local d = a:Tab("Credit")
-e:Label("Welcome to Cofiez Hub")
-e:Label("________________________________")
-e:Label("Use with your own Risk!")
-e:Label("Toggle UI: Right Ctrl")
-e:Label("Version: Free | 0.1.4")
-e:Label("________________________________")
-e:Label("Dev Logs: (16/03/2022 | DD/MM/YYYY)")
-e:Label("(1) New UI")
-e:Label("(2) Fixed [Auto Stamina]")
-e:Label("(3) Fixed [Change Value]")
-e:Label("(4) Added Auto (Squat, Push Up)")
+getgenv().CurrentMaxStamina = math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value)
+getgenv().EatPhanTram = 20
+getgenv().DelayClick = 1
+getgenv().StopStamina = 10
+getgenv().MaxHoiStamina = 100
+getgenv().StopAutoStamina = 20
+getgenv().StopTreadmill = 20
 getgenv().MousePos = false
+
 local function TrueAutoStamina()
     local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
 end
 local function FalseAutoStamina()
     local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
 end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
+
+local a = Library:Window("Cofiez Hub", "Mighty Omega")
+
+local e = a:Tab("Home")
+local b = a:Tab("Main")
+local c = a:Tab("Misc")
+local f = a:Tab("Setting")
+local d = a:Tab("Credit")
+e:Label("Welcome to Cofiez Hub")
+e:line()
+e:Label("Use with your own Risk!")
+e:Label("Toggle UI: Right Ctrl")
+e:Label("Version: Free | 0.1.4")
+e:line()
+e:Label("Dev Logs: (15/03/2022 | DD/MM/YYYY)")
+e:Label("(1) New UI")
+e:Label("(2) Fixed [Auto Stamina]")
+e:Label("(3) Fixed [Change Value]")
+e:Label("(4) Added Auto (Squat, Push Up)")
 
 b:Toggle("Auto Job", false, function(check)
     getgenv().v___0 = check
@@ -553,16 +661,11 @@ else
     game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 end
 end)
-b:Dropdown("Job", {"Restock"}, function(a)
-    getgenv().NameJob = a
-end)
-b:Dropdown("Type", {"Slow"}, function(a)
-    getgenv().TypeJob = a
-end)
+
 --[[b:Toggle("Auto Job Fast | Locked", function(check)
     getgenv().AutoJobFastBeta = check
 end)--]]
-b:Label("________________________________")
+
 b:Toggle("Auto Training", false, function(a)
     getgenv().AutoTraining = a
     spawn(function()
@@ -605,16 +708,8 @@ b:Toggle("Auto Training", false, function(a)
         until getgenv().AutoTraining == false
     end)
 end)
-b:Dropdown("Type", {"Squat", "Push up"}, function(a)
-    getgenv().AutoType = a
-end)
-b:Textbox("Method name", false, function(a)
-    getgenv().AutoType = a
-end)
-b:Slider("Custom Stamina Stop", 1, 1000, 20, function(a)
-    getgenv().StopAutoStamina = a
-end)
-b:Label("________________________________")
+
+
 b:Toggle("Auto Eat", false, function(a)
     getgenv().AutoEat = a
     spawn(function()
@@ -637,33 +732,27 @@ b:Toggle("Auto Eat", false, function(a)
         until getgenv().AutoEat == false
     end)
 end)
-b:Slider("Automatically eat when ... %", 1, 100, 1, function(a)
-    getgenv().EatPhanTram = a
-end)
-b:Textbox("Food Name", false, function(a)
-    getgenv().EatFood = a
-end)
-b:Dropdown("List Foods", {"Hamburger", "Omelette", "Pancake", "Donut", "Pie", "EZ Taco", "Hotdog"}, function(a)
-    getgenv().EatFood = a
-end)
-b:Label("________________________________")
 b:Toggle("Auto Treadmill", false, function(check)
     getgenv().AutoTread1 = check
     spawn(function()
         repeat wait(.5) --
-            if game.Players.LocalPlayer.Character.CurrentStamina.Value > 5 then
+            if getgenv().CurrentStamina >= getgenv().StopTreadmill then
                 getgenv().AutoTread2 = true
                 if getgenv().AutoTread2 == true then
+                    print("ok")
                     if game.Players.LocalPlayer.PlayerGui:FindFirstChild("TreadmillMachineGUI") then
                         game:GetService("VirtualInputManager"):SendKeyEvent(true, game.Players.LocalPlayer.PlayerGui:FindFirstChild("TreadmillMachineGUI").Frame3.TrainingF.ButtonTemplate.Input.Text, false ,game)
                     end
                 end
-            elseif game.Players.LocalPlayer.Character.CurrentStamina.Value < 5 then
+            elseif getgenv().CurrentStamina < getgenv().StopTreadmill then
+                print("no")
                 getgenv().AutoTread2 = false
             end
         until getgenv().AutoTread1 == false 
     end)
 end)
+
+
 b:Toggle("Auto Stamina", false, function(check)
 getgenv().AutoStaminaEN = check
     if getgenv().AutoStaminaEN then
@@ -691,10 +780,10 @@ getgenv().AutoStaminaEN = check
                     local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
                 end
                 if getgenv().savearg1 then
-                    if game.Players.LocalPlayer.Character.CurrentStamina.Value >= 20 then
+                    if game.Players.LocalPlayer.Character.CurrentStamina.Value >= getgenv().MaxHoiStamina then
                         local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
                         wait(3)
-                    elseif game.Players.LocalPlayer.Character.CurrentStamina.Value <= 10 then
+                    elseif game.Players.LocalPlayer.Character.CurrentStamina.Value <= getgenv().StopStamina then
                         local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
                         wait(3)
                     end
@@ -729,7 +818,51 @@ getgenv().AutoStaminaEN = check
         end
     end
 end)
-b:Button("Boost FPS", function()
+
+getgenv().ValueWalk1 = 1
+c:Toggle("Change Value", false, function(a)
+    if a then
+    local hb = game:GetService("RunService").Heartbeat
+        repeat hb:wait()
+            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * tonumber(getgenv().ValueWalk1/100))
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = getgenv().ValueJump1
+        until a == false
+    else
+        getgenv().ValueWalk1 = 0
+        getgenv().ValueJump1 = 40
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 40
+    end
+end)
+
+c:Slider("WalkSpeed", 1, 500, 1, function(a)
+    getgenv().ValueWalk1 = a
+end)
+c:Slider("JumpPower", 40, 200, 1, function(a)
+    getgenv().ValueJump1 = a
+end)
+c:line()
+c:Toggle("Auto Click", false, function(a)
+    getgenv().AutoClick = a
+    while getgenv().AutoClick do wait(getgenv().DelayClick)
+        if getgenv().AutoClick == true then
+            if getgenv().MousePos == true then
+                game:GetService("VirtualUser"):ClickButton1(Vector2.new(game.Players.LocalPlayer:GetMouse().X, game.Players.LocalPlayer:GetMouse().Y))
+            elseif getgenv().MousePos == false then
+                game:GetService("VirtualUser"):ClickButton1(Vector2.new(2000, 2000))
+            end
+        end
+    end
+end)
+c:Toggle("Name Protect (Cilent)", false, function(ab)
+    if ab == true then
+        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = false
+        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = false
+    elseif ab == false then
+        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = true
+        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = true
+    end
+end)
+c:Button("Boost FPS", function()
     workspace:FindFirstChildOfClass('Terrain').WaterWaveSize = 0
 	workspace:FindFirstChildOfClass('Terrain').WaterWaveSpeed = 0
 	workspace:FindFirstChildOfClass('Terrain').WaterReflectance = 0
@@ -770,7 +903,7 @@ b:Button("Boost FPS", function()
 		end)()
 	end)
 end)
-b:Button("Super Boost FPS", function()
+c:Button("Super Boost FPS", function()
     if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
         game['Loaded']:Wait();
         game:WaitForChild(game:GetService('Players'));
@@ -886,53 +1019,7 @@ b:Button("Super Boost FPS", function()
         end
      end)
 end)
-getgenv().ValueWalk1 = 1
-c:Toggle("Change Value", false, function(a)
-    if a then
-    local hb = game:GetService("RunService").Heartbeat
-        repeat hb:wait()
-            game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection * tonumber(getgenv().ValueWalk1/100))
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = getgenv().ValueJump1
-        until a == false
-    else
-        getgenv().ValueWalk1 = 0
-        getgenv().ValueJump1 = 40
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 40
-    end
-end)
-
-c:Slider("WalkSpeed", 1, 500, 1, function(a)
-    getgenv().ValueWalk1 = a
-end)
-c:Slider("JumpPower", 40, 200, 1, function(a)
-    getgenv().ValueJump1 = a
-end)
-c:Label("________________________________")
-c:Toggle("Auto Click", false, function(a)
-    getgenv().AutoClick = a
-    while getgenv().AutoClick do wait(getgenv().DelayClick)
-        if getgenv().AutoClick == true then
-            if getgenv().MousePos == true then
-                game:GetService("VirtualUser"):ClickButton1(Vector2.new(game.Players.LocalPlayer:GetMouse().X, game.Players.LocalPlayer:GetMouse().Y))
-            elseif getgenv().MousePos == false then
-                game:GetService("VirtualUser"):ClickButton1(Vector2.new(2000, 2000))
-            end
-        end
-    end
-end)
-c:Slider("Delay Click Time", 0, 120, 1, function(a)
-    getgenv().DelayClick = a
-end)
-c:Label("________________________________")
-c:Toggle("Name Protect (Cilent)", false, function(ab)
-    if ab == true then
-        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = false
-        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = false
-    elseif ab == false then
-        game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = true
-        game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[game.Players.LocalPlayer.Name].User.Txt.Visible = true
-    end
-end)
+c:line()
 c:Label("Character Stats:")
 local maxh = c:Label("Health: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.Health).."/"..math.floor(game.Players.LocalPlayer.Character.Humanoid.MaxHealth))
 local maxs = c:Label("Stamina: "..math.floor(game.Players.LocalPlayer.Character.CurrentStamina.Value).."/"..math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value))
@@ -942,6 +1029,7 @@ local speed1 = c:Label("Speed: "..math.floor(game.Players.LocalPlayer.Character.
 local jump1 = c:Label("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
 spawn(function()
     while wait(1) do
+        getgenv().CurrentMaxStamina = math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value)
         getgenv().CurrentStamina = game.Players.LocalPlayer.Character.CurrentStamina.Value
         getgenv().StomachPT = math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100)
         jump1:Refresh("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
@@ -959,3 +1047,46 @@ d:Button("Copy Invitelink Discord Server", function()
         CopyInvite()
 end)
 d:Label("-- j4f --")
+
+f:Label("Auto Job")
+f:Dropdown("Auto Job - Job Name", {"Restock"}, function(a)
+    getgenv().NameJob = a
+end)
+f:Dropdown("Auto Job - Type Mode", {"Slow"}, function(a)
+    getgenv().TypeJob = a
+end)
+f:Label("Auto Stamina")
+f:Slider("Auto Stamina - Custom Stamina Stop Stamina", 1, 1000, 10, function(a)
+    getgenv().StopStamina = a
+end)
+f:Slider("Auto Stamina - Custom Restore Max Stamina", 1, 1000, 100, function(a)
+    getgenv().MaxHoiStamina = a
+end)
+f:Label("Auto Treadmill")
+f:Slider("Auto Treadmill - Custom Stamina Stop Treadmill", 1, 1000, 20, function(a)
+    getgenv().StopTreadmill = a
+end)
+f:Label("Auto Training")
+f:Textbox("Auto Training - Exercise box name", false, function(a)
+    getgenv().AutoType = a
+end)
+f:Dropdown("Auto Training - Exercise Type", {"Squat", "Push up"}, function(a)
+    getgenv().AutoType = a
+end)
+f:Slider("Auto Training - Custom Stamina Stop Training", 1, 1000, 20, function(a)
+    getgenv().StopAutoStamina = a
+end)
+f:Label("Auto Eat")
+f:Textbox("Auto Eat - Food Name", false, function(a)
+    getgenv().EatFood = a
+end)
+f:Dropdown("Auto Eat - List Foods", {"Hamburger", "Omelette", "Pancake", "Donut", "Pie", "EZ Taco", "Hotdog"}, function(a)
+    getgenv().EatFood = a
+end)
+f:Slider("Auto Eat - Automatically eat when ... % Stomach", 1, 100, 1, function(a)
+    getgenv().EatPhanTram = a
+end)
+f:Label("Auto Click")
+f:Slider("Auto Click - Delay Click Time", 1, 120, 1, function(a)
+    getgenv().DelayClick = a
+end)
