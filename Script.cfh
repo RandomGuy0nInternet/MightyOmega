@@ -259,7 +259,7 @@ end
     e:Label("Toggle UI: Right Ctrl")
     e:Label("Version: Free | 0.1.7")
     e:line()
-    e:Label("Dev Logs: (15/03/2022 | DD/MM/YYYY)")
+    e:Label("Dev Logs: (16/03/2022 | DD/MM/YYYY)")
     e:Label("(1) New UI")
     e:Label("(2) Fixed [Auto Stamina]")
     e:Label("(3) Fixed [Change Value]")
