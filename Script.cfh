@@ -117,13 +117,16 @@ local b = a:Tab("Main")
 local c = a:Tab("LocalPlayer")
 local d = a:Tab("Credit")
 e:Label("Welcome to Cofiez Hub")
-e:Label("Use it with your own Risk!")
+e:Label("________________________________")
+e:Label("Use with your own Risk!")
 e:Label("Toggle UI: Right Ctrl")
-e:Label("Version: Free | 0.1.3")
+e:Label("Version: Free | 0.1.4")
+e:Label("________________________________")
 e:Label("Dev Logs: (15/03/2022 | DD/MM/YYYY)")
 e:Label("(1) New UI")
 e:Label("(2) Fixed [Auto Stamina]")
 e:Label("(3) Fixed [Change Value]")
+e:Label("(4) Added Auto (Squat, Push Up)")
 getgenv().MousePos = false
 local function TrueAutoStamina()
     local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
@@ -134,6 +137,7 @@ end
 
 b:Toggle("Auto Job", false, function(check)
     getgenv().v___0 = check
+    if check then
     getgenv().v___1 = true
     getgenv().v___2 = false
     getgenv().v___3 = false
@@ -267,7 +271,7 @@ b:Toggle("Auto Job", false, function(check)
                 end
             end
         end
-    until getgenv().v___1 == false
+    until getgenv().v___1 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___2 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v2)
@@ -288,7 +292,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___2 == false
+    until getgenv().v___2 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___3 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v3)
@@ -309,7 +313,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end     
-    until getgenv().v___3 == false
+    until getgenv().v___3 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___4 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v4)
@@ -330,7 +334,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___4 == false
+    until getgenv().v___4 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___5 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v5)
@@ -351,7 +355,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___5 == false
+    until getgenv().v___5 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___6 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v6)
@@ -372,7 +376,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___6 == false
+    until getgenv().v___6 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___7 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v7)
@@ -393,7 +397,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___7 == false
+    until getgenv().v___7 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___8 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v8)
@@ -414,7 +418,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___8 == false
+    until getgenv().v___8 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___9 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v9)
@@ -435,7 +439,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___9 == false
+    until getgenv().v___9 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___10 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v10)
@@ -456,7 +460,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___10 == false
+    until getgenv().v___10 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___11 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v11)
@@ -477,7 +481,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___11 == false
+    until getgenv().v___11 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___12 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v12)
@@ -498,7 +502,7 @@ b:Toggle("Auto Job", false, function(check)
                 getgenv().v___14 = false
             end
         end
-    until getgenv().v___12 == false
+    until getgenv().v___12 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___13 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v13)
@@ -520,7 +524,7 @@ b:Toggle("Auto Job", false, function(check)
             end
         end
         wait(0.5)
-    until getgenv().v___13 == false
+    until getgenv().v___13 == false or getgenv().v___0 == false 
     repeat wait()
         if getgenv().v___14 == true and getgenv().v___0 == true then
             v__2[v__6][v__4][v__7][v__5]:MoveTo(v14)
@@ -542,19 +546,75 @@ b:Toggle("Auto Job", false, function(check)
             end
         end
         wait(0.5)
-    until getgenv().v___14 == false
+    until getgenv().v___14 == false or getgenv().v___0 == false 
     end
     end)
+else
+    game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+end
 end)
 b:Dropdown("Job", {"Restock"}, function(a)
     getgenv().NameJob = a
-    end)
-    b:Dropdown("Type", {"Slow"}, function(a)
+end)
+b:Dropdown("Type", {"Slow"}, function(a)
     getgenv().TypeJob = a
-    end)
+end)
 --[[b:Toggle("Auto Job Fast | Locked", function(check)
     getgenv().AutoJobFastBeta = check
 end)--]]
+b:Label("________________________________")
+b:Toggle("Auto Training", false, function(a)
+    getgenv().AutoTraining = a
+    spawn(function()
+        if getgenv().AutoTraining then
+            repeat wait()
+                if getgenv().CurrentStamina >= getgenv().StopAutoStamina then
+                    getgenv().CanAutoTrain = true
+                else
+                    getgenv().CanAutoTrain = false
+                end
+            until getgenv().AutoTraining == false
+        end
+    end)
+    spawn(function()
+        repeat wait()
+            if getgenv().AutoTraining then
+                if getgenv().CurrentStamina >= getgenv().StopAutoStamina then
+                    if game.Players.LocalPlayer.Character:FindFirstChild(getgenv().AutoType) and game.Players.LocalPlayer.Character[getgenv().AutoType]:IsA("Tool") then
+                        if getgenv().CanAutoTrain == true then
+                            local virtual = game:GetService("VirtualUser")
+                            wait(0.1)
+                            repeat wait()
+                                if getgenv().CanAutoTrain == true then
+                                    virtual:ClickButton1(Vector2.new(2000, 2000))
+                                    print("Test")
+                                end
+                            until getgenv().AutoTraining == false
+                        end
+                    else
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(getgenv().AutoType) and game.Players.LocalPlayer.Character:FindFirstChild(getgenv().AutoType) == nil then
+                            wait(0.1)
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild(getgenv().AutoType))
+                        end
+                    end
+                else
+                    getgenv().CanAutoTrain = false
+                    game.Players.LocalPlayer.Character.Humanoid:UnequipTools(game.Players.LocalPlayer.Backpack:FindFirstChild(getgenv().AutoType))
+                end
+            end
+        until getgenv().AutoTraining == false
+    end)
+end)
+b:Dropdown("Type", {"Squat", "Push up"}, function(a)
+    getgenv().AutoType = a
+end)
+b:Textbox("Method name", false, function(a)
+    getgenv().AutoType = a
+end)
+b:Slider("Custom Stamina Stop", 1, 1000, 20, function(a)
+    getgenv().StopAutoStamina = a
+end)
+b:Label("________________________________")
 b:Toggle("Auto Eat", false, function(a)
     getgenv().AutoEat = a
     spawn(function()
@@ -586,6 +646,7 @@ end)
 b:Dropdown("List Foods", {"Hamburger", "Omelette", "Pancake", "Donut", "Pie", "EZ Taco", "Hotdog"}, function(a)
     getgenv().EatFood = a
 end)
+b:Label("________________________________")
 b:Toggle("Auto Treadmill", false, function(check)
     getgenv().AutoTread1 = check
     spawn(function()
@@ -846,6 +907,7 @@ end)
 c:Slider("JumpPower", 40, 200, 1, function(a)
     getgenv().ValueJump1 = a
 end)
+c:Label("________________________________")
 c:Toggle("Auto Click", false, function(a)
     getgenv().AutoClick = a
     while getgenv().AutoClick do wait(getgenv().DelayClick)
@@ -861,6 +923,7 @@ end)
 c:Slider("Delay Click Time", 0, 120, 1, function(a)
     getgenv().DelayClick = a
 end)
+c:Label("________________________________")
 c:Toggle("Name Protect (Cilent)", false, function(ab)
     if ab == true then
         game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = false
@@ -879,6 +942,7 @@ local speed1 = c:Label("Speed: "..math.floor(game.Players.LocalPlayer.Character.
 local jump1 = c:Label("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
 spawn(function()
     while wait(1) do
+        getgenv().CurrentStamina = game.Players.LocalPlayer.Character.CurrentStamina.Value
         getgenv().StomachPT = math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100)
         jump1:Refresh("Jump: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.JumpPower))
         stomach:Refresh("Stomach: "..math.floor((game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.Bar.AbsoluteSize.X)/(game.Players.LocalPlayer.PlayerGui.MainGui.Utility.StomachBar.BarF.AbsoluteSize.X)*100).."%")
