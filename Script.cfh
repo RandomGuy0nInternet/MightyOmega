@@ -257,14 +257,14 @@ end
     Library:Notification("Hi "..game.Players.LocalPlayer.Name.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
     e:Label("Use with your own Risk!")
     e:Label("Toggle UI: Right Ctrl")
-    e:Label("Version: Free | 0.1.7")
+    e:Label("Version: Free | 0.1.8")
     e:line()
     e:Label("Dev Logs: (16/03/2022 | DD/MM/YYYY)")
     e:Label("(1) New UI")
     e:Label("(2) Fixed [Auto Stamina]")
     e:Label("(3) Fixed [Change Value]")
     e:Label("(4) Added Auto (Squat, Push Up)")
-    e:Label("(5) Added Settings")
+    e:Label("(5) Added Settings and smth else")
     
     b:Toggle("Auto Job", false, function(check)
         getgenv().v___0 = check
@@ -1041,6 +1041,65 @@ end
                v.Enabled = false
             end
          end)
+    end)
+    c:line()
+    c:Label("Funny")
+    c:Button("Block Head", function()
+        for i,v in pairs(game.Players.LocalPlayer.Character.FakeH.Head:GetChildren()) do
+            if v:IsA("SpecialMesh") and v.Name == "Mesh" then
+            v:Destroy()
+            end
+        end
+    end)
+    c:Button("Break All", function()
+        for a1,v1 in pairs(game.Players.LocalPlayer.Character.LeftUpperArm:GetChildren()) do
+            if v1:IsA("Motor6D") and v1.Name == "LeftShoulder" then
+                v1:Destroy()
+            end
+        end
+        for a2,v2 in pairs(game.Players.LocalPlayer.Character.RightUpperArm:GetChildren()) do
+            if v2:IsA("Motor6D") and v2.Name == "RightShoulder" then
+                v2:Destroy()
+            end
+        end
+        for a3,v3 in pairs(game.Players.LocalPlayer.Character.LeftUpperLeg:GetChildren()) do
+            if v3:IsA("Motor6D") and v3.Name == "LeftHip" then
+                v3:Destroy()
+            end
+        end
+        for a4,v4 in pairs(game.Players.LocalPlayer.Character.RightUpperLeg:GetChildren()) do
+            if v4:IsA("Motor6D") and v4.Name == "RightHip" then
+                v4:Destroy()
+            end
+        end
+    end)
+    c:Button("Break Left Arm", function()
+        for i,v in pairs(game.Players.LocalPlayer.Character.LeftUpperArm:GetChildren()) do
+            if v:IsA("Motor6D") and v.Name == "LeftShoulder" then
+                v:Destroy()
+            end
+        end
+    end)
+    c:Button("Break Right Arm", function()
+        for i,v in pairs(game.Players.LocalPlayer.Character.RightUpperArm:GetChildren()) do
+            if v:IsA("Motor6D") and v.Name == "RightShoulder" then
+                v:Destroy()
+            end
+        end
+    end)
+    c:Button("Break Left Leg", function()
+        for i,v in pairs(game.Players.LocalPlayer.Character.LeftUpperLeg:GetChildren()) do
+            if v:IsA("Motor6D") and v.Name == "LeftHip" then
+                v:Destroy()
+            end
+        end
+    end)
+    c:Button("Break Right Leg", function()
+        for i,v in pairs(game.Players.LocalPlayer.Character.RightUpperLeg:GetChildren()) do
+            if v:IsA("Motor6D") and v.Name == "RightHip" then
+                v:Destroy()
+            end
+        end
     end)
     c:line()
     c:Label("Character Stats:")
