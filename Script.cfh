@@ -11,7 +11,7 @@ end
     setclipboard(tostring("discord.gg/ZB7Ayyg6ju"))
     Library1:Notification("Cofiez Hub", "Copied!")
     end)
-    local successkey = "fuckbigga"
+    local successkey = "SanSaleShopee"
     b:Textbox(" Type Key Here:", false, function(a)
         getgenv().KeyOk = a
     end)
