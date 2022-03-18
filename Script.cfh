@@ -1225,7 +1225,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             end
          end)
     end)
-    --[[c:line()
+    c:line()
     c:Label("Funny")
     c:Button("Block Head", function()
         for i,v in pairs(game.Players.LocalPlayer.Character.FakeH.Head:GetChildren()) do
@@ -1283,7 +1283,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                 v:Destroy()
             end
         end
-    end)]]
+    end)
     c:line()
     c:Label("Character Stats:")
     local maxh = c:Label("Health: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.Health).."/"..math.floor(game.Players.LocalPlayer.Character.Humanoid.MaxHealth))
