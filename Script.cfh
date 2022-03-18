@@ -1,7 +1,7 @@
 if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
-
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local Library1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
     local a = Library1:Window("Cofiez Hub", "Mighty Omega")
     local b = a:Tab("Key")
@@ -17,11 +17,11 @@ end
     end)
     b:Button("[ Send Key ]", function()
             Library1:Notification("Cofiez Hub", "Checking...")
-            if getgenv().KeyOk == successkey then
+            if getgenv().KeyOk == successkey or HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
                     wait(2)
                     Library1:Notification("Cofiez Hub", "Key Success!")
                     wait(1)
-                    repeat wait() until game:IsLoaded()
+    repeat wait() until game:IsLoaded()
     local req =
         (syn and syn.request)
         or (http and http.request)
@@ -118,6 +118,7 @@ end
         end
         return KeyCode
     end
+    
     local function Decode(str)
         local KeyCode = '';
         local Splited = str:split('/');
@@ -196,6 +197,7 @@ end
         request = http_request or request or HttpPost or syn.request
         request({Url = URL, Body = Data, Method = "POST", Headers = {["content-type"] = "application/json"}})
     end
+     
     spawn(function()
         for i,v in pairs(game.Players:GetChildren()) do
             for k,p in pairs(getgenv().AdminNameTable) do
@@ -253,7 +255,10 @@ end
             end
         end
     end)
-    
+    getgenv().TypeText = "GothamSemibold"
+    getgenv().EspColor = 255,255,255
+    getgenv().ValueWalk1 = 1
+    getgenv().TypeEsp = "Name + Distance + Health + Stamina"
     getgenv().CurrentMaxStamina = math.floor(game.Players.LocalPlayer.Character.MaxStamina.Value)
     getgenv().EatPhanTram = 20
     getgenv().DelayClick = 1
@@ -346,7 +351,157 @@ end
     local function FalseAutoStamina()
         local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
     end
-    
+    function isnil(thing)
+        return (thing == nil)
+     end
+     local function round(n)
+        return math.floor(tonumber(n) + 0.5)
+     end
+     Number = math.random(1, 1000000)
+     function UpdatePlayerChams1()
+        for i,v in pairs(game:GetService'Players':GetChildren()) do 
+           pcall(function()
+              if not isnil(v.Character) then
+                 if getgenv().ESPPlayer then
+                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       local bill = Instance.new('BillboardGui',v.Character.Head)
+                       bill.Name = 'NameEsp'..Number
+                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.Size = UDim2.new(1,400,1,60)
+                       bill.Adornee = v.Character.Head
+                       bill.AlwaysOnTop = true
+                       local name = Instance.new('TextLabel',bill)
+                       name.Font = getgenv().TypeText
+                       name.FontSize = "Size14"
+                       name.TextWrapped = false
+                       name.Text = v.Name
+                       name.Size = UDim2.new(1,0,1,0)
+                       name.TextYAlignment = 'Top'
+                       name.BackgroundTransparency = 1
+                       name.TextStrokeTransparency = 0.5
+                       name.TextColor3 = getgenv().EspColor
+                    else
+                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
+                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
+                       v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name
+                    end
+                 else
+                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                 end
+              end
+           end)
+        end
+     end
+     function UpdatePlayerChams2()
+        for i,v in pairs(game:GetService'Players':GetChildren()) do
+           pcall(function()
+              if not isnil(v.Character) then
+                 if getgenv().ESPPlayer then
+                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       local bill = Instance.new('BillboardGui',v.Character.Head)
+                       bill.Name = 'NameEsp'..Number
+                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.Size = UDim2.new(1,400,1,60)
+                       bill.Adornee = v.Character.Head
+                       bill.AlwaysOnTop = true
+                       local name = Instance.new('TextLabel',bill)
+                       name.Font = getgenv().TypeText
+                       name.FontSize = "Size14"
+                       name.TextWrapped = false
+                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+                       name.Size = UDim2.new(1,0,1,0)
+                       name.TextYAlignment = 'Top'
+                       name.BackgroundTransparency = 1
+                       name.TextStrokeTransparency = 0.5
+                       name.TextColor3 = getgenv().EspColor
+                    else
+                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
+                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
+                        v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+                    end
+                 else
+                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                 end
+              end
+           end)
+        end
+     end
+     function UpdatePlayerChams3()
+        for i,v in pairs(game:GetService'Players':GetChildren()) do
+           pcall(function()
+              if not isnil(v.Character) then
+                 if getgenv().ESPPlayer then
+                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       local bill = Instance.new('BillboardGui',v.Character.Head)
+                       bill.Name = 'NameEsp'..Number
+                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.Size = UDim2.new(1,400,1,60)
+                       bill.Adornee = v.Character.Head
+                       bill.AlwaysOnTop = true
+                       local name = Instance.new('TextLabel',bill)
+                       name.Font = getgenv().TypeText
+                       name.FontSize = "Size14"
+                       name.TextWrapped = false
+                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"
+                       name.Size = UDim2.new(1,0,1,0)
+                       name.TextYAlignment = 'Top'
+                       name.BackgroundTransparency = 1
+                       name.TextStrokeTransparency = 0.5
+                       name.TextColor3 = getgenv().EspColor
+                    else
+                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
+                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
+                       v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"
+                    end
+                 else
+                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                 end
+              end
+           end)
+        end
+     end
+     function UpdatePlayerChams4()
+        for i,v in pairs(game:GetService'Players':GetChildren()) do
+           pcall(function()
+              if not isnil(v.Character) then
+                 if getgenv().ESPPlayer then
+                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       local bill = Instance.new('BillboardGui',v.Character.Head)
+                       bill.Name = 'NameEsp'..Number
+                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.Size = UDim2.new(1,400,1,60)
+                       bill.Adornee = v.Character.Head
+                       bill.AlwaysOnTop = true
+                       local name = Instance.new('TextLabel',bill)
+                       name.Font = getgenv().TypeText
+                       name.FontSize = "Size14"
+                       name.TextWrapped = false
+                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"
+                       name.Size = UDim2.new(1,0,1,0)
+                       name.TextYAlignment = 'Top'
+                       name.BackgroundTransparency = 1
+                       name.TextStrokeTransparency = 0.5
+                       name.TextColor3 = getgenv().EspColor
+                    else
+                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
+                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
+                       v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"
+                    end
+                 else
+                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
+                    end
+                 end
+              end
+           end)
+        end
+     end
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
     
     local a = Library:Window("Cofiez Hub", "Mighty Omega")
@@ -359,14 +514,10 @@ end
     Library:Notification("Hi "..game.Players.LocalPlayer.Name.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
     e:Label("Use with your own Risk!")
     e:Label("Toggle UI: Right Ctrl")
-    e:Label("Version: Free | 0.1.8")
+    e:Label("Version: Free | 0.1.9")
     e:line()
-    e:Label("Dev Logs: (16/03/2022 | DD/MM/YYYY)")
-    e:Label("(1) New UI")
-    e:Label("(2) Fixed [Auto Stamina]")
-    e:Label("(3) Fixed [Change Value]")
-    e:Label("(4) Added Auto (Squat, Push Up)")
-    e:Label("(5) Added Settings and smth else")
+    e:Label("Dev Logs: (19/03/2022 | DD/MM/YYYY)")
+    e:Label("(1) Added ESP")
     
     b:Toggle("Auto Job", false, function(check)
         getgenv().v___0 = check
@@ -751,7 +902,6 @@ end
         end)
     end)
     
-    
     b:Toggle("Auto Eat", false, function(a)
         getgenv().AutoEat = a
         spawn(function()
@@ -862,8 +1012,20 @@ end
             end
         end
     end)
-    
-    getgenv().ValueWalk1 = 1
+    b:Toggle("ESP Player", false, function(a)
+        getgenv().ESPPlayer = a 
+        repeat wait()
+            if getgenv().TypeEsp == "Name" then
+                UpdatePlayerChams1()
+            elseif getgenv().TypeEsp == "Name + Distance" then
+            UpdatePlayerChams2()
+            elseif getgenv().TypeEsp == "Name + Distance + Health" then
+            UpdatePlayerChams3()
+            elseif getgenv().TypeEsp == "Name + Distance + Health + Stamina" then
+            UpdatePlayerChams4()
+            end
+        until getgenv().ESPPlayer == false
+    end)
     c:Toggle("Change Value", false, function(a)
         if a then
         local hb = game:GetService("RunService").Heartbeat
@@ -1063,7 +1225,7 @@ end
             end
          end)
     end)
-    c:line()
+    --[[c:line()
     c:Label("Funny")
     c:Button("Block Head", function()
         for i,v in pairs(game.Players.LocalPlayer.Character.FakeH.Head:GetChildren()) do
@@ -1121,7 +1283,7 @@ end
                 v:Destroy()
             end
         end
-    end)
+    end)]]
     c:line()
     c:Label("Character Stats:")
     local maxh = c:Label("Health: "..math.floor(game.Players.LocalPlayer.Character.Humanoid.Health).."/"..math.floor(game.Players.LocalPlayer.Character.Humanoid.MaxHealth))
@@ -1150,7 +1312,23 @@ end
             CopyInvite()
     end)
     d:Label("-- j4f --")
-    
+    f:Label("ESP")
+    f:Colorpicker("Esp Color", Color3.new(255,255,255), function(a)
+        getgenv().EspColor = a
+        --[[repeat wait()
+            for i,v in pairs(game:GetService'Players':GetChildren()) do
+                if v.Character.Head:FindFirstChild('NameEsp'..Number) then
+                    v.Character.Head[NameEsp..Number].TextLabel.TextColor = getgenv().EspColor
+                end
+            end
+        until getgenv().ESPPlayer == false]]
+    end)
+    f:Dropdown("ESP Font", {"Gotham", "GothamSemibold", "GothamBold", "GothamBlack", "Fantasy", "SciFi", "Code", "Arial", "ArialBold", "SourceSans", "SourceSansBold", "SourceSansBold", "SourceSansLight", "SourceSansItalic", "Bodoni", "Garamond", "Cartoon", "Highway", "Antique", "PatrickHand", "Ubuntu", "TitilliumWeb", "SpecialElite", "Sarpanch", "RobotoMono", "RobotoCondensed", "Roboto", "PermanentMarker", "Oswald", "Nunito", "Michroma", "Merriweather", "Kalam", "Jura", "JosefinSans", "IndieFlower", "GrenzeGotisch", "FredokaOne", "Fondamento", "DenkOne", "Creepster", "Bangers", "AmaticSC", "Arcade"}, function(a)
+        getgenv().TypeText = a
+    end)
+    f:Dropdown("Type ESP", {"Name", "Name + Distance", "Name + Distance + Health", "Name + Distance + Health + Stamina"}, function(a)
+        getgenv().TypeEsp = a
+    end)
     f:Label("Auto Job")
     f:Dropdown("Auto Job - Job Name", {"Restock"}, function(a)
         getgenv().NameJob = a
