@@ -1227,13 +1227,13 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end)
     c:line()
     c:Label("Funny")
-    c:Button("Block Head", function()
+    --[[c:Button("Block Head", function()
         for i,v in pairs(game.Players.LocalPlayer.Character.FakeH.Head:GetChildren()) do
             if v:IsA("SpecialMesh") and v.Name == "Mesh" then
             v:Destroy()
             end
         end
-    end)
+    end)]]
     c:Button("Break All", function()
         for a1,v1 in pairs(game.Players.LocalPlayer.Character.LeftUpperArm:GetChildren()) do
             if v1:IsA("Motor6D") and v1.Name == "LeftShoulder" then
