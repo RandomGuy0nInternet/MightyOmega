@@ -255,6 +255,14 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             end
         end
     end)
+
+    getgenv().EspName = true
+    getgenv().EspDistance = false
+    getgenv().EspHealth = false
+    getgenv().EspStamina = false
+    getgenv().EspStyle = false
+
+    getgenv().TypeJob = "Slow"
     getgenv().TypeText = "GothamSemibold"
     getgenv().EspColor = 255,255,255
     getgenv().ValueWalk1 = 1
@@ -284,6 +292,19 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     getgenv().v___15 = false
     getgenv().v___16 = false
     getgenv().v___17 = false
+
+    getgenv().t___1 = true
+    getgenv().t___2 = false
+    getgenv().t___3 = false
+    getgenv().t___4 = false
+    getgenv().t___5 = false
+    getgenv().t___6 = false
+    getgenv().t___7 = false
+    getgenv().t___8 = false
+    getgenv().t___9 = false
+    getgenv().t___10 = false
+    getgenv().t___11 = false
+    getgenv().t___12 = false
     ---
     local v1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
     local v2 = Vector3.new(-317.88973999023, 47.137977600098, -592.13891601562)
@@ -301,7 +322,12 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local v14 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
 
     local posfastjob = {
-        
+        cf1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906),
+        cf2 = Vector3.new(-314.328613, 47.2520142, -597.11908),
+        cf3 = Vector3.new(-207.122009, 47.3519592, -594.404114),
+        cf4 = Vector3.new(-146.093079, 47.5519791, -628.419189),
+        cf5 = Vector3.new(238.504517, 45.7520065, -875.502625),
+        cf6 = Vector3.new(419.78552246094, 28.138019561768, -847.77008056641)
     }
     ---
     local v__0 = 4
@@ -358,7 +384,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         return math.floor(tonumber(n) + 0.5)
      end
      Number = math.random(1, 1000000)
-     function UpdatePlayerChams1()
+     function UpdatePlayerChams()
         for i,v in pairs(game:GetService'Players':GetChildren()) do 
            pcall(function()
               if not isnil(v.Character) then
@@ -381,9 +407,55 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                        name.TextStrokeTransparency = 0.5
                        name.TextColor3 = getgenv().EspColor
                     else
+                        for a1, a2 in pairs(game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF:GetChildren()) do
+                            if v.Name == a2.Name then
+                               PlrCharacterName = game.Players.LocalPlayer.PlayerGui.PlayerList.Frame.ScrollF[v.Name].User.Txt.Text
+                            end
+                         end
                         v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
                         v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
-                       v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name.." | "..PlrCharacterName
+                        --[[if getgenv().EspName == true and getgenv().EspDistance == false and getgenv().EspHealth == false and getgenv().EspStamina == false and getgenv().EspStyle == false then
+                            v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name.." | "..PlrCharacterName
+                        elseif getgenv().EspName == true and getgenv().EspDistance == true and getgenv().EspHealth == false and getgenv().EspStamina == false and getgenv().EspStyle == false then
+                            v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name.." | "..PlrCharacterName..'   \n'..'Distance: '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+                        elseif getgenv().EspName == true and getgenv().EspDistance == true and getgenv().EspHealth == true and getgenv().EspStamina == false and getgenv().EspStyle == false then
+                            v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name.." | "..PlrCharacterName..'   \n'..'Distance: '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"
+                        elseif getgenv().EspName == true and getgenv().EspDistance == true and getgenv().EspHealth == true and getgenv().EspStamina == true and getgenv().EspStyle == false then
+                            v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name.." | "..PlrCharacterName..'   \n'..'Distance: '..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"]]
+                        --if getgenv().EspName == true and getgenv().EspDistance == true and getgenv().EspHealth == true and getgenv().EspStamina == true and getgenv().EspStyle == true then
+                        if  getgenv().EspName == false then
+                            a1name = ""
+                        else
+                            a1name = " ["..v.Name.."]"
+                        end
+
+                        if  getgenv().EspDistance == false then
+                            a1distance = ""
+                        else
+                            a1distance = '['..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3).."M"..']'
+                        end
+
+                        if  getgenv().EspHealth == false then
+                            a1health = ""
+                        else
+                            a1health = ' [Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..']'
+                        end
+
+                        if  getgenv().EspStamina == false then
+                            a1stamina = ""
+                        else
+                            a1stamina = ' [Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")".."]"
+                        end
+                        
+                        if  getgenv().EspCharacterName == false then
+                            a1fakename = ""
+                        else
+                            a1fakename = " ["..PlrCharacterName..']'
+                        end
+                        
+                        --v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name.." | "..PlrCharacterName..'   \n'..'Distance: '..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3 ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"
+                        v.Character.Head['NameEsp'..Number].TextLabel.Text = a1distance..a1name..a1fakename..a1health..a1stamina
+                        v.Character.Head['NameEsp'..Number].ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
                     end
                  else
                     if v.Character.Head:FindFirstChild('NameEsp'..Number) then
@@ -394,132 +466,33 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
            end)
         end
      end
-     function UpdatePlayerChams2()
-        for i,v in pairs(game:GetService'Players':GetChildren()) do
-           pcall(function()
-              if not isnil(v.Character) then
-                 if getgenv().ESPPlayer then
-                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       local bill = Instance.new('BillboardGui',v.Character.Head)
-                       bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
-                       bill.Size = UDim2.new(1,400,1,60)
-                       bill.Adornee = v.Character.Head
-                       bill.AlwaysOnTop = true
-                       local name = Instance.new('TextLabel',bill)
-                       name.Font = getgenv().TypeText
-                       name.FontSize = "Size14"
-                       name.TextWrapped = false
-                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
-                       name.Size = UDim2.new(1,0,1,0)
-                       name.TextYAlignment = 'Top'
-                       name.BackgroundTransparency = 1
-                       name.TextStrokeTransparency = 0.5
-                       name.TextColor3 = getgenv().EspColor
-                    else
-                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
-                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
-                        v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
-                    end
-                 else
-                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
-                    end
-                 end
-              end
-           end)
-        end
-     end
-     function UpdatePlayerChams3()
-        for i,v in pairs(game:GetService'Players':GetChildren()) do
-           pcall(function()
-              if not isnil(v.Character) then
-                 if getgenv().ESPPlayer then
-                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       local bill = Instance.new('BillboardGui',v.Character.Head)
-                       bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
-                       bill.Size = UDim2.new(1,400,1,60)
-                       bill.Adornee = v.Character.Head
-                       bill.AlwaysOnTop = true
-                       local name = Instance.new('TextLabel',bill)
-                       name.Font = getgenv().TypeText
-                       name.FontSize = "Size14"
-                       name.TextWrapped = false
-                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"
-                       name.Size = UDim2.new(1,0,1,0)
-                       name.TextYAlignment = 'Top'
-                       name.BackgroundTransparency = 1
-                       name.TextStrokeTransparency = 0.5
-                       name.TextColor3 = getgenv().EspColor
-                    else
-                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
-                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
-                       v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"
-                    end
-                 else
-                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
-                    end
-                 end
-              end
-           end)
-        end
-     end
-     function UpdatePlayerChams4()
-        for i,v in pairs(game:GetService'Players':GetChildren()) do
-           pcall(function()
-              if not isnil(v.Character) then
-                 if getgenv().ESPPlayer then
-                    if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       local bill = Instance.new('BillboardGui',v.Character.Head)
-                       bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
-                       bill.Size = UDim2.new(1,400,1,60)
-                       bill.Adornee = v.Character.Head
-                       bill.AlwaysOnTop = true
-                       local name = Instance.new('TextLabel',bill)
-                       name.Font = getgenv().TypeText
-                       name.FontSize = "Size14"
-                       name.TextWrapped = false
-                       name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"
-                       name.Size = UDim2.new(1,0,1,0)
-                       name.TextYAlignment = 'Top'
-                       name.BackgroundTransparency = 1
-                       name.TextStrokeTransparency = 0.5
-                       name.TextColor3 = getgenv().EspColor
-                    else
-                        v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
-                        v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
-                       v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M | ')..'Health: '..math.floor(v.Character.Humanoid.Health).."/"..math.floor(v.Character.Humanoid.MaxHealth)..' ('..math.floor((v.Character.Humanoid.Health)/(v.Character.Humanoid.MaxHealth)*100).."%"..")"..' | Stamina: '..tostring(math.floor(v.Character.CurrentStamina.Value)).."/"..tostring(math.floor(v.Character.MaxStamina.Value))..' ('..math.floor((v.Character.CurrentStamina.Value)/(v.Character.MaxStamina.Value)*100).."%"..")"
-                    end
-                 else
-                    if v.Character.Head:FindFirstChild('NameEsp'..Number) then
-                       v.Character.Head:FindFirstChild('NameEsp'..Number):Destroy()
-                    end
-                 end
-              end
-           end)
-        end
-     end
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
+     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
     
-    local a = Library:Window("Cofiez Hub", "Mighty Omega")
-    
-    local e = a:Tab("Home")
-    local b = a:Tab("Main")
-    local c = a:Tab("Misc")
-    local f = a:Tab("Setting")
-    local d = a:Tab("Credit")
-    Library:Notification("Hi "..game.Players.LocalPlayer.Name.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
-    e:Label("Use with your own Risk!")
-    e:Label("Toggle UI: Right Ctrl")
-    e:Label("Version: Free | 0.1.9")
-    e:line()
-    e:Label("Dev Logs: (19/03/2022 | DD/MM/YYYY)")
-    e:Label("(1) Added ESP")
+     local a = Library:Window("Cofiez Hub", "Mighty Omega")
+     
+     local e = a:Tab("Home")
+     local b = a:Tab("Auto")
+     local g = a:Tab("Visual")
+     local c = a:Tab("Misc")
+     local f = a:Tab("Setting")
+     local d = a:Tab("Credit")
+     Library:Notification("Hi "..game.Players.LocalPlayer.Name.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
+     e:Label("Use with your own Risk!")
+     e:Label("Toggle UI: Right Ctrl")
+     e:Label("Version: Free | 0.2.1")
+     e:line()
+     e:Label("Dev Logs: (20/03/2022 | DD/MM/YYYY)")
+     e:Label("(1) Fixed Esp, now you can edit it!")
+     e:Label("(2) Added Running without losing Stamina (risk).")
+    --[[e:Button("a", function()
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end)
+    e:Bind("Test", {Enum.KeyCode.Space}, function(a)
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end)]]
     
     b:Toggle("Auto Job", false, function(check)
+        if getgenv().TypeJob == "Slow" then
         getgenv().v___0 = check
         if check then
         ---
@@ -858,7 +831,50 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     else
         game.Players.LocalPlayer.Character.Humanoid:MoveTo(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
     end
-    end)
+elseif getgenv().TypeJob == "Fast" then
+    getgenv().StartAutoJob = a
+        --[[if check then
+            spawn(function()
+            while getgenv().StartAutoJob == true do wait()
+                    v__23()
+                    wait()
+                    if v___15 == true then wait()
+                        if v__2[v__6][v__4][v__9]:FindFirstChild(v__10) == nil then
+                            fireclickdetector(v__2[v__15][v__16][v__17])
+                        elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__26 then
+                            wait(0.2)
+                            v__25()
+                            wait(0.5)
+                            fireclickdetector(v__2[v__15][v__16][v__17])
+                        elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__27 then
+                            wait(0.2)
+                            v__25()
+                            wait(0.5)
+                            fireclickdetector(v__2[v__15][v__16][v__17])
+                        elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__14 then
+                            getgenv().v___16 = false
+                            wait()
+                            getgenv().v___17 = true
+                        end
+                    elseif getgenv().v___15 == false then
+                        wait()
+                        v__23()
+                    end
+                end
+            end)
+            ---
+            spawn(function()
+                repeat wait()
+                    repeat wait()
+                        if getgenv().StartAutoJob == true and getgenv().t___1 == true then
+                            v__2[v__6][v__4][v__7][v__5]:MoveTo(posfastjob[cf1])
+                        end
+                    until getgenv().t___1 == false
+                until getgenv().StartAutoJob == false
+            end)
+        end]]
+    end
+end)
     b:Toggle("Auto Training", false, function(a)
         getgenv().AutoTraining = a
         spawn(function()
@@ -943,8 +959,61 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             until getgenv().AutoTread1 == false 
         end)
     end)
-    
-    
+    b:Toggle("Run without losing Stamina", false, function(a)
+        getgenv().RunNoStamina = a
+        if getgenv().RunNoStamina then
+            spawn(function()
+                if getgenv().savearg1 then
+                    Library:Notification("Check", "Found Args!")
+                elseif getgenv().savearg1 == nil then
+                    local mt = getrawmetatable(game);
+                    local oldnamecall = mt.__namecall
+                    setreadonly(mt,false)
+                    mt.__namecall = newcclosure(function(self,...)
+                    args = {...}
+                    method = getnamecallmethod()
+                    if  self.Name == "Action" and getgenv().savearg1 == nil then
+                        getgenv().savearg1 = args[1]
+                    end
+                    return oldnamecall(self,...)
+                    end)
+                    setreadonly(mt,true)
+                end       
+            end)
+            spawn(function()
+                repeat wait()
+                    if getgenv().RunNoStamina and getgenv().savearg1 then
+                        if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed >= 20 then
+                            if getgenv().savearg1 ~= nil then
+                            local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
+                            wait(.5)
+                            end
+                        end
+                    elseif getgenv().savearg1 == nil then
+                        Library:Notification("Check", "Can't find Args!")
+                        local mt = getrawmetatable(game);
+                        local oldnamecall = mt.__namecall
+                        setreadonly(mt,false)
+                        mt.__namecall = newcclosure(function(self,...)
+                        args = {...}
+                        method = getnamecallmethod()
+                        if  self.Name == "Action" and getgenv().savearg1 == nil then
+                            getgenv().savearg1 = args[1]
+                        end
+                        return oldnamecall(self,...)
+                        end)
+                        setreadonly(mt,true)
+                        wait(3)
+                        Library:Notification("Check", "Your character will automatically run to get Args! ")
+                        wait(1)
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+                        wait(.1)
+                        game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+                    end
+                until getgenv().RunNoStamina == false
+            end)
+        end
+    end)
     b:Toggle("Auto Stamina", false, function(check)
     getgenv().AutoStaminaEN = check
     getgenv().CheckToString1 = tostring(check)
@@ -1012,20 +1081,27 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             end
         end
     end)
-    b:Toggle("ESP Player", false, function(a)
+    g:Toggle("ESP Player", false, function(a)
         getgenv().ESPPlayer = a 
         repeat wait()
-            if getgenv().TypeEsp == "Name" then
-                UpdatePlayerChams1()
-            elseif getgenv().TypeEsp == "Name + Distance" then
-            UpdatePlayerChams2()
-            elseif getgenv().TypeEsp == "Name + Distance + Health" then
-            UpdatePlayerChams3()
-            elseif getgenv().TypeEsp == "Name + Distance + Health + Stamina" then
-            UpdatePlayerChams4()
-            end
+            UpdatePlayerChams()
         until getgenv().ESPPlayer == false
     end)
+    --[[g:Toggle("ESP Npc", false, function(a)
+        getgenv().ESPNpc = a
+    end)
+    g:Toggle("ESP Job", false, function(a)
+        getgenv().ESPJob = a
+    end)
+    g:Toggle("ESP Trainer", false, function(a)
+        getgenv().ESPTrainer = a
+    end)
+    g:Toggle("ESP Gym", false, function(a)
+        getgenv().ESPGym = a
+    end)
+    g:Toggle("ESP Store", false, function(a)
+        getgenv().ESPStore = a
+    end)]]
     c:Toggle("Change Value", false, function(a)
         if a then
         local hb = game:GetService("RunService").Heartbeat
@@ -1047,6 +1123,19 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         getgenv().ValueJump1 = a
     end)
     c:line()
+    c:Toggle("Auto Jump (Bypassed)", false, function(a)
+        getgenv().AutoJump = a
+        repeat wait()
+                game.Players.LocalPlayer.Character.Humanoid.Jump = true
+                task.wait(.3)
+        until getgenv().AutoJump == false
+    end)
+    c:Toggle("Auto Jump", false, function(a)
+        getgenv().AutoJump = a
+        repeat wait()
+                task.wait(.3)
+        until getgenv().AutoJump == false
+    end)
     c:Toggle("Auto Click", false, function(a)
         getgenv().AutoClick = a
         while getgenv().AutoClick do wait(getgenv().DelayClick)
@@ -1329,27 +1418,38 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             end
         until getgenv().ESPPlayer == false]]
     end)
+    f:Toggle("Esp Name", false, function(a)
+        getgenv().EspName = a
+    end)
+    f:Toggle("Esp Character Name", false, function(a)
+        getgenv().EspCharacterName = a
+    end)
+    f:Toggle("Esp Distance", false, function(a)
+        getgenv().EspDistance = a
+    end)
+    f:Toggle("Esp Health", false, function(a)
+        getgenv().EspHealth = a
+    end)
+    f:Toggle("Esp Stamina", false, function(a)
+        getgenv().EspStamina = a
+    end)
+    f:Dropdown("ESP Font", {"Gotham", "GothamSemibold", "GothamBold", "GothamBlack", "Fantasy", "SciFi", "Code", "Arial", "ArialBold", "SourceSans", "SourceSansBold", "SourceSansBold", "SourceSansLight", "SourceSansItalic", "Bodoni", "Garamond", "Cartoon", "Highway", "Antique", "PatrickHand", "Ubuntu", "TitilliumWeb", "SpecialElite", "Sarpanch", "RobotoMono", "RobotoCondensed", "Roboto", "PermanentMarker", "Oswald", "Nunito", "Michroma", "Merriweather", "Kalam", "Jura", "JosefinSans", "IndieFlower", "GrenzeGotisch", "FredokaOne", "Fondamento", "DenkOne", "Creepster", "Bangers", "AmaticSC", "Arcade"}, function(a)
+        getgenv().TypeText = a
+    end)
     f:Slider("ESP Pos X", 1,10,1, function(a)
         getgenv().ESP_Pos_X = a
      end)
-        
      f:Slider("ESP Pos Y", 2,10,1, function(a)
         getgenv().ESP_Pos_Y = a
      end)   
      f:Slider("ESP Pos Z", 1,10,1, function(a)
         getgenv().ESP_Pos_Z = a
      end)
-    f:Dropdown("ESP Font", {"Gotham", "GothamSemibold", "GothamBold", "GothamBlack", "Fantasy", "SciFi", "Code", "Arial", "ArialBold", "SourceSans", "SourceSansBold", "SourceSansBold", "SourceSansLight", "SourceSansItalic", "Bodoni", "Garamond", "Cartoon", "Highway", "Antique", "PatrickHand", "Ubuntu", "TitilliumWeb", "SpecialElite", "Sarpanch", "RobotoMono", "RobotoCondensed", "Roboto", "PermanentMarker", "Oswald", "Nunito", "Michroma", "Merriweather", "Kalam", "Jura", "JosefinSans", "IndieFlower", "GrenzeGotisch", "FredokaOne", "Fondamento", "DenkOne", "Creepster", "Bangers", "AmaticSC", "Arcade"}, function(a)
-        getgenv().TypeText = a
-    end)
-    f:Dropdown("Type ESP", {"Name", "Name + Distance", "Name + Distance + Health", "Name + Distance + Health + Stamina"}, function(a)
-        getgenv().TypeEsp = a
-    end)
     f:Label("Auto Job")
     f:Dropdown("Auto Job - Job Name", {"Restock"}, function(a)
         getgenv().NameJob = a
     end)
-    f:Dropdown("Auto Job - Type Mode", {"Slow"}, function(a)
+    f:Dropdown("Auto Job - Type Mode", {"Slow", "Fast"}, function(a)
         getgenv().TypeJob = a
     end)
     f:Label("Auto Stamina")
