@@ -982,7 +982,7 @@ end)
             end)
             spawn(function()
                 repeat wait()
-                    if getgenv().RunNoStamina and getgenv().savearg1 then
+                    if getgenv().RunNoStamina == true and getgenv().savearg1 ~= nil then
                         if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed >= 20 then
                             if getgenv().savearg1 ~= nil then
                             local info_false_1 = {[1] = getgenv().savearg1,[2] = "RunToggle",[3] = {[1] = false}} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(info_false_1))
