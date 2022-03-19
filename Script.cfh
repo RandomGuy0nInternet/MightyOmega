@@ -366,7 +366,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
                        local bill = Instance.new('BillboardGui',v.Character.Head)
                        bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
                        bill.Size = UDim2.new(1,400,1,60)
                        bill.Adornee = v.Character.Head
                        bill.AlwaysOnTop = true
@@ -374,7 +374,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                        name.Font = getgenv().TypeText
                        name.FontSize = "Size14"
                        name.TextWrapped = false
-                       name.Text = v.Name
+                       name.Text = v.Name.." | "..PlrCharacterName
                        name.Size = UDim2.new(1,0,1,0)
                        name.TextYAlignment = 'Top'
                        name.BackgroundTransparency = 1
@@ -383,7 +383,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     else
                         v.Character.Head['NameEsp'..Number].TextLabel.Font = getgenv().TypeText
                         v.Character.Head['NameEsp'..Number].TextLabel.TextColor3 = getgenv().EspColor
-                       v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name
+                       v.Character.Head['NameEsp'..Number].TextLabel.Text = v.Name.." | "..PlrCharacterName
                     end
                  else
                     if v.Character.Head:FindFirstChild('NameEsp'..Number) then
@@ -402,7 +402,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
                        local bill = Instance.new('BillboardGui',v.Character.Head)
                        bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
                        bill.Size = UDim2.new(1,400,1,60)
                        bill.Adornee = v.Character.Head
                        bill.AlwaysOnTop = true
@@ -438,7 +438,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
                        local bill = Instance.new('BillboardGui',v.Character.Head)
                        bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
                        bill.Size = UDim2.new(1,400,1,60)
                        bill.Adornee = v.Character.Head
                        bill.AlwaysOnTop = true
@@ -474,7 +474,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     if not isnil(v.Character.Head) and not v.Character.Head:FindFirstChild('NameEsp'..Number) then
                        local bill = Instance.new('BillboardGui',v.Character.Head)
                        bill.Name = 'NameEsp'..Number
-                       bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                       bill.ExtentsOffset = Vector3.new(getgenv().ESP_Pos_X, getgenv().ESP_Pos_Y, getgenv().ESP_Pos_Z)
                        bill.Size = UDim2.new(1,400,1,60)
                        bill.Adornee = v.Character.Head
                        bill.AlwaysOnTop = true
@@ -1313,6 +1313,12 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end)
     d:Label("-- j4f --")
     f:Label("ESP")
+    f:Button("Refresh ESP Setting", function()
+        getgenv().EspColor = Color3.new(255,255,255)
+        getgenv().ESP_Pos_X = 0
+        getgenv().ESP_Pos_Y = 2
+        getgenv().ESP_Pos_Z = 0
+    end)
     f:Colorpicker("Esp Color", Color3.new(255,255,255), function(a)
         getgenv().EspColor = a
         --[[repeat wait()
@@ -1323,6 +1329,16 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             end
         until getgenv().ESPPlayer == false]]
     end)
+    f:Slider("ESP Pos X", 1,10,1, function(a)
+        getgenv().ESP_Pos_X = a
+     end)
+        
+     f:Slider("ESP Pos Y", 2,10,1, function(a)
+        getgenv().ESP_Pos_Y = a
+     end)   
+     f:Slider("ESP Pos Z", 1,10,1, function(a)
+        getgenv().ESP_Pos_Z = a
+     end)
     f:Dropdown("ESP Font", {"Gotham", "GothamSemibold", "GothamBold", "GothamBlack", "Fantasy", "SciFi", "Code", "Arial", "ArialBold", "SourceSans", "SourceSansBold", "SourceSansBold", "SourceSansLight", "SourceSansItalic", "Bodoni", "Garamond", "Cartoon", "Highway", "Antique", "PatrickHand", "Ubuntu", "TitilliumWeb", "SpecialElite", "Sarpanch", "RobotoMono", "RobotoCondensed", "Roboto", "PermanentMarker", "Oswald", "Nunito", "Michroma", "Merriweather", "Kalam", "Jura", "JosefinSans", "IndieFlower", "GrenzeGotisch", "FredokaOne", "Fondamento", "DenkOne", "Creepster", "Bangers", "AmaticSC", "Arcade"}, function(a)
         getgenv().TypeText = a
     end)
