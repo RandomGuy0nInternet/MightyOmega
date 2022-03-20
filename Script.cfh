@@ -658,6 +658,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
      e:Label("- Now you can choose to automatically")
      e:Label("adjust stamina to the point of sweating or not")
      e:Label("(3) Fixed Esp show yourself")
+     e:Label("(4) Added Hop/Rejoin Server")
     --[[e:Button("a", function()
         game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end)
