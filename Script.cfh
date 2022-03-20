@@ -1,7 +1,7 @@
 if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
-local HttpService = game:GetService("HttpService")
+--[[local HttpService = game:GetService("HttpService")
 if (readfile and isfile and isfile("ConfigsMightyOmega.cfh")) then
     getgenv().SaveSettings  = game:GetService("HttpService"):JSONDecode(readfile("ConfigsMightyOmega.cfh"));
 end
@@ -9,7 +9,7 @@ for i,v in pairs(getgenv().SaveSettings) do
     if i == "AutoJoinDiscord" then
         getgenv().AutoJoinDiscord = v                                 
     end
-end
+end]]
 function autojoindiscord()
     if getgenv().AutoJoinDiscord == true then
         local req =
