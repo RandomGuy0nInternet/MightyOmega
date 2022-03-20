@@ -171,6 +171,30 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
             )
         end
     end
+    function autojoindiscord()
+        local req =
+        (syn and syn.request)
+        or (http and http.request)
+        or http_request
+        or request
+        or HttpPost
+
+        if req then
+            req({
+                Url = 'http://127.0.0.1:6463/rpc?v=1',
+                Method = 'POST',
+                Headers = {
+                    ['Content-Type'] = 'application/json',
+                    Origin = 'https://discord.com'
+                },
+                Body = game:GetService("HttpService"):JSONEncode({
+                    cmd = 'INVITE_BROWSER',
+                    nonce = game:GetService("HttpService"):GenerateGUID(false),
+                    args = {code = "kzNFNEFRbz"}
+                })
+            })
+        end
+    end
     function CopyInvite()
         setclipboard(tostring("discord.gg/kzNFNEFRbz"))
         wait()
@@ -466,6 +490,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
            end)
         end
      end
+     autojoindiscord()
      local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
     
      local a = Library:Window("Cofiez Hub", "Mighty Omega")
