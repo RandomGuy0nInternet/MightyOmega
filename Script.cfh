@@ -409,7 +409,8 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
      end
      Number = math.random(1, 1000000)
      function UpdatePlayerChams()
-        for i,v in pairs(game:GetService'Players':GetChildren()) do 
+        for i,v in pairs(game:GetService'Players':GetChildren()) do
+            if v.Name ~= game.Players.LocalPlayer.Name then
            pcall(function()
               if not isnil(v.Character) then
                  if getgenv().ESPPlayer then
@@ -488,6 +489,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                  end
               end
            end)
+        end
         end
      end
      autojoindiscord()
