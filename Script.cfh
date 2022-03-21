@@ -84,6 +84,9 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
                     Library1:Notification("Cofiez Hub", "Key Success!")
                     wait(1)
     repeat wait() until game:IsLoaded()
+    if game.CoreGui:FindFirstChild("Mana") then
+        game.CoreGui.Mana:Destroy()
+    end
     local req =
         (syn and syn.request)
         or (http and http.request)
@@ -662,7 +665,9 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         end
         end
      end
-     
+     if game.CoreGui:FindFirstChild("Mana") then
+        game.CoreGui.Mana:Destroy()
+    end
      local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomGuy0nInternet/Cofiez_Hub_Premium/main/UI_Library/Main_Script_2"))()
     
      local a = Library:Window("Cofiez Hub", "Mighty Omega")
