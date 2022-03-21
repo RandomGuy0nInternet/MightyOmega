@@ -1,15 +1,42 @@
+local HttpService = game:GetService("HttpService")
+local fileidname = "userid_DONOTDELETE.cfh"
+local Chars = {
+    {48, 57}, -- 0-9
+    {65, 90}, -- A-Z
+    {97, 122}, -- a-z
+}
+function Gen(Length)
+    local String = ""
+    if Length and type(Length) == "number" then
+        for I = 1, Length do
+            local Select = Chars[math.random(1,#Chars)]
+            String = String..string.char(math.random(Select[1], Select[2]))
+        end
+    end
+    return String
+end
+
+if isfile(fileidname) then
+    if (readfile and isfile and isfile(fileidname)) then
+        getgenv().DayLaIdUser  = game:GetService("HttpService"):JSONDecode(readfile(fileidname));
+    end
+else
+    getgenv().DayLaIdUser = Gen(13)
+    wait()
+    local json;
+    local HttpService = game:GetService("HttpService");
+    if (writefile) then
+       json = HttpService:JSONEncode(getgenv().DayLaIdUser);
+       writefile(fileidname, json);
+    else
+       print("Can't save because of your trash exploits")
+    end
+end
+
 if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
---[[local HttpService = game:GetService("HttpService")
-if (readfile and isfile and isfile("ConfigsMightyOmega.cfh")) then
-    getgenv().SaveSettings  = game:GetService("HttpService"):JSONDecode(readfile("ConfigsMightyOmega.cfh"));
-end
-for i,v in pairs(getgenv().SaveSettings) do
-    if i == "AutoJoinDiscord" then
-        getgenv().AutoJoinDiscord = v                                 
-    end
-end]]
+
 function autojoindiscord()
     if getgenv().AutoJoinDiscord == true then
         local req =
@@ -647,10 +674,14 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
      local c = a:Tab("Misc")
      local f = a:Tab("Setting")
      local d = a:Tab("Credit")
-     Library:Notification("Hi "..game.Players.LocalPlayer.Name.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
+     if getgenv().DayLaIdUser then
+        Library:Notification("Hi User_"..getgenv().DayLaIdUser.."!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
+     else
+        Library:Notification("Hi User_Unknown!", "Welcome to Cofiez Hub!        If you need help, you can contact me Geta#0983 or join Cofiez Community discord server! Enjoy.")
+    end
      e:Label("Use with your own Risk!")
      e:Label("Toggle UI: Right Ctrl")
-     e:Label("Version: Free | 0.2.2")
+     e:Label("Version: Free | 0.2.3")
      e:line()
      e:Label("Dev Logs: (21/03/2022 | DD/MM/YYYY)")
      e:Label("(1) Fixed Esp, now you can edit it!")
@@ -659,6 +690,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
      e:Label("adjust stamina to the point of sweating or not")
      e:Label("(3) Fixed Esp show yourself")
      e:Label("(4) Added Hop/Rejoin Server")
+     e:Label("(5) Added User System, now i can ban you from script! ")
     --[[e:Button("a", function()
         game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end)
