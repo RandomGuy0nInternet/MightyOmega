@@ -1274,7 +1274,6 @@ end)
         if getgenv().AutoStaminaEN then
             spawn(function()
                 if getgenv().savearg1 then
-                    Library:Notification("Check", "Found Args!")
                 elseif getgenv().savearg1 == nil then
                     local mt = getrawmetatable(game);
                     local oldnamecall = mt.__namecall
@@ -1304,7 +1303,7 @@ end)
                             wait(3)
                         end
                     elseif getgenv().savearg1 == nil then
-                        Library:Notification("Check", "Can't find Args!")
+                        Library:Notification("Warning", "Don't do anything else right now!")
                         local mt = getrawmetatable(game);
                         local oldnamecall = mt.__namecall
                         setreadonly(mt,false)
@@ -1318,7 +1317,7 @@ end)
                         end)
                         setreadonly(mt,true)
                         wait(3)
-                        Library:Notification("Check", "Your character will automatically run to get Args! ")
+                        Library:Notification("Check", "When your character starts running, you can stop it!")
                         wait(1)
                         game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
                         wait(.1)
