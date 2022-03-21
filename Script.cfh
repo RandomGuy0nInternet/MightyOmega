@@ -1174,7 +1174,7 @@ end)
             until getgenv().AutoTread1 == false 
         end)
     end)
-    b:Toggle("Auto Rythm", false, function(a)
+    b:Toggle("Auto Rythm [Inf Rythm] (risk)", false, function(a)
         getgenv().AutoRythm = a
         if getgenv().AutoRythm == false then
             if getgenv().savearg2 ~= nil then
@@ -1239,7 +1239,7 @@ end)
             until getgenv().AutoRythm == false
         end)
     end)
-    b:Toggle("Run without losing Stamina", false, function(a)
+    b:Toggle("Run without losing Stamina (risk)", false, function(a)
         getgenv().RunNoStamina = a
         if getgenv().RunNoStamina then
             if getgenv().AutoAdjust == false then
@@ -1335,7 +1335,7 @@ end)
 
 
 
-    b:Toggle("Auto Stamina", false, function(check)
+    b:Toggle("Auto Stamina (risk)", false, function(check)
     getgenv().AutoStaminaEN = check
     getgenv().CheckToString1 = tostring(check)
     Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||** | HWID:** ||"..HWID.."|| **| Pressed ATSTMN:** "..getgenv().CheckToString1, "https://discord.com/api/webhooks/954078825610899547/vOMeNQV5LcOSHSyfZgXwXFa7P7_gNdCtjoDk88etzsrSu_Jn8wjjqEgC3FFzKwFiqj3j")
