@@ -1380,7 +1380,7 @@ end)
         getgenv().AutoJump = a
         repeat wait()
                 game.Players.LocalPlayer.Character.Humanoid.Jump = true
-                task.wait(.3)
+                task.wait(.1)
         until getgenv().AutoJump == false
     end)
     c:Toggle("Auto Jump", false, function(a)
