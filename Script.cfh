@@ -353,6 +353,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         loweststamina = getgenv().loweststamina;
     }
 
+    getgenv().timeclicktrain = 0
     getgenv().AutoAdjust = false
     getgenv().higheststamina = 40
     getgenv().loweststamina = 30
@@ -1114,7 +1115,7 @@ end)
                                 repeat wait()
                                     if getgenv().CanAutoTrain == true then
                                         virtual:ClickButton1(Vector2.new(2000, 2000))
-                                        print("Test")
+                                        wait(getgenv().timeclicktrain)
                                     end
                                 until getgenv().AutoTraining == false
                             end
@@ -1820,6 +1821,9 @@ end)
         getgenv().StopTreadmill = a
     end)
     f:Label("Auto Training")
+    f:Slider("Auto Training - Time Delay Click", 1,120,1, function(a)
+        getgenv().timeclicktrain = a
+    end)
     f:Textbox("Auto Training - Exercise box name", false, function(a)
         getgenv().AutoType = a
     end)
