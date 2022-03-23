@@ -1156,7 +1156,7 @@ end)
             until getgenv().AutoEat == false
         end)
     end)
-    b:Toggle("Auto Treadmill", false, function(check)
+    --[[b:Toggle("Auto Treadmill", false, function(check)
         getgenv().AutoTread1 = check
         spawn(function()
             repeat wait(.5) --
@@ -1174,7 +1174,7 @@ end)
                 end
             until getgenv().AutoTread1 == false 
         end)
-    end)
+    end)]]
     b:Toggle("Auto Rythm [Inf Rythm] (risk)", false, function(a)
         getgenv().AutoRythm = a
         if getgenv().AutoRythm == false then
