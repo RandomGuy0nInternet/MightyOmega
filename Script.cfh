@@ -1,11 +1,12 @@
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-if HWID ~= "283DE6A6-EB60-4903-8868-C0742720E723" then
+--local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+--if HWID ~= "283DE6A6-EB60-4903-8868-C0742720E723" then
     if game.CoreGui:FindFirstChild("Mana") then
         game.CoreGui.Mana:Destroy()
     end
     spawn(function()
-        repeat wait(5)
+        repeat wait()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/TizCof/ThisIsFkinLmao/main/script.cfh"))()
+            wait(5)
         until getgenv().StopCheckLoad == false
     end)
     local HttpService = game:GetService("HttpService")
@@ -1859,4 +1860,4 @@ if HWID ~= "283DE6A6-EB60-4903-8868-C0742720E723" then
         Library1:Notification("Cofiez Hub", "Invaild Key!")
                 end
     end)
-end
+--end
