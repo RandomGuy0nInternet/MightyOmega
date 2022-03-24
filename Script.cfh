@@ -1486,7 +1486,7 @@ end)
                 if getgenv().savearg2 ~= nil and  getgenv().AutoRythm == true then
                     local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
                 end
-                wait(5)
+                wait(1)
             until getgenv().AutoRythm == false
         end)
     end)
