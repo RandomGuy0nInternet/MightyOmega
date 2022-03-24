@@ -1,4 +1,5 @@
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local Version = "Version: Free | 0.2.7"
 if HWID == "283DE6A6-EB60-4903-8868-C0742720E723" then
     warn("check failed!")
     warn("check failed!")
@@ -149,7 +150,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local b = a:Tab("Key")
     b:Label("Join Discord Server To Get Key!")
     b:Label("Key will change every day")
-    b:Label("Version: Free | 0.2.6")
+    b:Label(Version)
     b:Button("Copy Invite Link", function()
     setclipboard(tostring("discord.gg/ZB7Ayyg6ju"))
     Library1:Notification("Cofiez Hub", "Copied!")
@@ -433,6 +434,9 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         loweststamina = getgenv().loweststamina;
     }
 
+    getgenv().tweenspeed = 5000
+    getgenv().TypeRythm = "Insta"
+    getgenv().TimeRegenRythm = 5
     getgenv().timeclicktrain = 0
     getgenv().AutoAdjust = false
     getgenv().higheststamina = 40
@@ -562,7 +566,11 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local v__27 = "Delivery Job"
     local v__28 = game:GetService("VirtualUser")
     local partwaitCFrame = CFrame.new(-732.496155, 700, -466.531311)
-    getgenv().tweenspeed = 5000
+    local RTXmode = {
+        "Autumn";
+        "Summer";
+        "Summer 2";
+     }
 
     function SaveSetting()
         warn("Saving Data...")
@@ -822,6 +830,59 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local function round(n)
         return math.floor(tonumber(n) + 0.5)
     end
+    function regenrythm()
+        local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} 
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+        game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+    end
     Number = math.random(1, 1000000)
     function UpdatePlayerChams()
         for i,v in pairs(game:GetService'Players':GetChildren()) do
@@ -928,12 +989,14 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end
     e:Label("Use with your own Risk!")
     e:Label("Toggle UI: Right Ctrl")
-    e:Label("Version: Free | 0.2.6")
+    b:Label(Version)
     e:line()
     e:Label("Dev Logs: (21/03/2022 | DD/MM/YYYY)")
     e:Label("(1) Fixed Somethings")
     e:Label("(2) Added Delay Click Time Auto Training")
     e:Label("(3) Added Travel")
+    e:Label("(4) Added Insta Rythm [Auto Rythm]")
+    e:Label("(5) Added RTX Mode")
     --[[e:Button("a", function()
         game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end)
@@ -1484,9 +1547,13 @@ end)
         spawn(function()
             repeat wait()
                 if getgenv().savearg2 ~= nil and  getgenv().AutoRythm == true then
-                    local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+                    if getgenv().TypeRythm == "Insta" then
+                        regenrythm()
+                    elseif getgenv().TypeRythm == "Normal" then
+                        local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+                    end
                 end
-                wait(1)
+                wait(getgenv().TimeRegenRythm)
             until getgenv().AutoRythm == false
         end)
     end)
@@ -1605,6 +1672,14 @@ end)
             UpdatePlayerChams()
         until getgenv().ESPPlayer == false
     end)
+    g:Toggle("Rainbow Health")
+    g:Toggle("Rainbow Stamina")
+    g:Toggle("Rainbow Stomach")
+    g:Toggle("Rainbow Calories")
+    g:Toggle("Rainbow Name")
+    g:Toggle("Rainbow Cash")
+    g:Toggle("Rainbow Trait")
+    g:Toggle("Rainbow Body Fatigue")
     --[[g:Toggle("ESP Npc", false, function(a)
         getgenv().ESPNpc = a
     end)
@@ -1877,6 +1952,110 @@ end)
             end
         end
     end)
+    c:Dropdown("RTX mode",RTXmode,function(Value)
+        getgenv().mode = Value
+     end)
+     
+     c:Button("RTX Graphic (Client)",function()
+        repeat wait()
+            renderqualitystring = tostring(settings().Rendering.QualityLevel):sub(24)
+            renderqualitynumber = tonumber(renderqualitystring)
+            if renderqualitynumber < 21 then
+            settings().Rendering.QualityLevel = renderqualitynumber + 1
+            end
+            until renderqualitynumber == 21
+         if getgenv().mode == "Summer 2" then
+             local yep = game.Lighting
+             local yep2 = Instance.new("Sky")
+             local yep3 = Instance.new("BloomEffect")
+             local yep4 = Instance.new("BlurEffect")
+     
+             yep2.Parent = yep
+             yep2.MoonTextureId = "rbxasset://sky/moon.jpg"
+             yep2.SkyboxBk = "http://www.roblox.com/asset?id=153258865"
+             yep2.SkyboxDn = "http://www.roblox.com/asset?id=153259937"
+             yep2.SkyboxFt = "http://www.roblox.com/asset?id=153258844"
+             yep2.SkyboxLf = "http://www.roblox.com/asset?id=153258851"
+             yep2.SkyboxRt = "http://www.roblox.com/asset?id=153258851"
+             yep2.SkyboxUp = "http://www.roblox.com/asset?id=153259943"
+             yep2.StarCount = 3000
+             yep2.SunAngularSize = 21
+             yep2.SunTextureId = "rbxasset://sky/sun.jpg"
+     
+             yep3.Parent = yep
+             yep3.Intensity = 1
+             yep3.Size = 24
+             yep3.Threshold = 0.5
+             yep3.Enabled = true
+     
+             yep4.Parent = yep
+             yep4.Enabled = true
+             yep4.Size = 5.5
+             return
+         end
+         local a = game.Lighting
+         a.TimeOfDay = 20
+         a.Ambient = Color3.fromRGB(33, 33, 33)
+         a.Brightness = 6.67
+         a.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
+         a.ColorShift_Top = Color3.fromRGB(255, 247, 237)
+         a.EnvironmentDiffuseScale = 0.105
+         a.EnvironmentSpecularScale = 0.522
+         a.GlobalShadows = true
+         a.OutdoorAmbient = Color3.fromRGB(51, 54, 67)
+         a.ShadowSoftness = 0.04
+         a.GeographicLatitude = -15.525
+         a.ExposureCompensation = 0.75
+     
+         local b = Instance.new("BloomEffect", a)
+         b.Enabled = true
+         b.Intensity = 0.04
+         b.Size = 1900
+         b.Threshold = 0.915
+     
+         local c = Instance.new("ColorCorrectionEffect", a)
+         c.Brightness = 0.176
+         c.Contrast = 0.39
+         c.Enabled = true
+         c.Saturation = 0.2
+         c.TintColor = Color3.fromRGB(217, 145, 57)
+         if getgenv().mode == "Summer" then
+             c.TintColor = Color3.fromRGB(255, 220, 148)
+         elseif getgenv().mode == "Autumn" then
+             c.TintColor = Color3.fromRGB(217, 145, 57)
+         else
+             lib:Notify("RTX mode","No mode selected!")
+             lib:Notify("RTX mode","Please select a mode")
+             b:Destroy()
+             c:Destroy()
+         end
+     
+         local d = Instance.new("DepthOfFieldEffect", a)
+         d.Enabled = true
+         d.FarIntensity = 0.077
+         d.FocusDistance = 21.54
+         d.InFocusRadius = 20.77
+         d.NearIntensity = 0.277
+     
+         local e = Instance.new("ColorCorrectionEffect", a)
+         e.Brightness = 0
+         e.Contrast = -0.07
+         e.Saturation = 0
+         e.Enabled = true
+         e.TintColor = Color3.fromRGB(255, 247, 239)
+     
+         local e2 = Instance.new("ColorCorrectionEffect", a)
+         e2.Brightness = 0.2
+         e2.Contrast = 0.45
+         e2.Saturation = -0.1
+         e2.Enabled = true
+         e2.TintColor = Color3.fromRGB(255, 255, 255)
+     
+         local s = Instance.new("SunRaysEffect", a)
+         s.Enabled = true
+         s.Intensity = 0.0
+         s.Spread = 0.146
+     end)
     c:Toggle("Name Protect (Cilent)", false, function(ab)
         if ab == true then
             game.Players.LocalPlayer.PlayerGui.MainGui.Utility.RPName.Visible = false
@@ -2209,6 +2388,13 @@ end)
     end)   
     f:Slider("ESP Pos Z", 1,10,1, function(a)
         getgenv().ESP_Pos_Z = a
+    end)
+    f:Label("Auto Rythm")
+    f:Slider("Time", 5,120,1, function(a)
+        getgenv().TimeRegenRythm = a
+    end)
+    f:Dropdown("Type Rythm", {"Insta", "Normal"}, function(a)
+        getgenv().TypeRythm = a
     end)
     f:Label("Auto Job")
     f:Dropdown("Auto Job - Job Name", {"Restock"}, function(a)
