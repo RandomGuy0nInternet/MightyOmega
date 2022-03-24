@@ -11,13 +11,10 @@ if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
 spawn(function()
-if HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
-else
     repeat wait()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/TizCof/ThisIsFkinLmao/main/script.cfh"))()
         wait(5)
     until getgenv().StopCheckLoad == false
-end
 end)
 local HttpService = game:GetService("HttpService")
 local fileidname = "userid_DONOTDELETE.cfh"
@@ -87,18 +84,18 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local b = a:Tab("Key")
     b:Label("Join Discord Server To Get Key!")
     b:Label("Key will change every day")
-    b:Label("Version: Free | 0.2.5")
+    b:Label("Version: Free | 0.2.6")
     b:Button("Copy Invite Link", function()
     setclipboard(tostring("discord.gg/ZB7Ayyg6ju"))
     Library1:Notification("Cofiez Hub", "Copied!")
     end)
-    local successkey = "yo_mom_so_fat"
+    local successkey = "monki_donki_bucky"
     b:Textbox(" Type Key Here:", false, function(a)
         getgenv().KeyOk = a
     end)
     b:Button("[ Send Key ]", function()
             Library1:Notification("Cofiez Hub", "Checking...")
-            if getgenv().KeyOk == successkey or HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" or game.Players.LocalPlayer.Name == "MNCblax" or game.Players.LocalPlayer.Name == "GSTAR1ON1" or HWID == "3FB9AD90-FDE2-4B69-A7FD-5745FB738471" then
+            if getgenv().KeyOk == successkey or HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
                     wait(2)
                     Library1:Notification("Cofiez Hub", "Key Success!")
                     wait(1)
@@ -354,7 +351,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         ValueJump1 = getgenv().ValueJump1;
         TypeEsp = getgenv().TypeEsp;
         CurrentMaxStamina = getgenv().CurrentMaxStamina;
-        EatPhanTram= getgenv().EatPhanTram;
+        EatPhanTram = getgenv().EatPhanTram;
         DelayClick= getgenv().DelayClick;
         StopStamina= getgenv().StopStamina;
         MaxHoiStamina= getgenv().MaxHoiStamina;
@@ -440,6 +437,23 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local v13 = Vector3.new(-309.34463500977, 47.93688583374, -600.7353515625)
     local v14 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906)
 
+    local Hospital = CFrame.new(-776.54895, 47.6420135, -286.577301)
+    local Bank = CFrame.new(-442.209625, 47.6420135, -465.1828)
+    local JobBoard1 = CFrame.new(-318.704926, 47.6420135, -588.729004)
+    local JobBoard2 = CFrame.new(-1166.89917, 47.7419853, -222.023788)
+    local Res1 = CFrame.new(-1123.24268, 47.7419701, -219.210251)
+    local Res2 = CFrame.new(806.993286, 28.6420517, -521.674438)
+    local Res3 = CFrame.new(-1006.65161, 47.7419357, -574.176025)
+    local Market1 = CFrame.new(-368.647522, 47.6420135, -587.550842)
+    local ClothesStore = CFrame.new(-528.875977, 47.7420311, -539.544922)
+    local Gym1 = CFrame.new(-525.622498, 47.7420197, -240.800644)
+    local Gym2 = CFrame.new(-698.084473, 47.7420197, -604.350464)
+    local Gym3 = CFrame.new(809.229248, 28.642025, -194.608124)
+    local BookStore = CFrame.new(-613.946289, 47.7420197, 1.18451273)
+    local Police = CFrame.new(-763.685059, 47.7419586, 97.099411)
+    local nhatro = CFrame.new(-770.732239, 47.5920143, -612.880432)
+    local dautruong = CFrame.new(-2060.51953, 64.1323471, -762.132202)
+
     local posfastjob = {
         cf1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906),
         cf2 = Vector3.new(-314.328613, 47.2520142, -597.11908),
@@ -465,7 +479,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local v__13 = "Text"
     local v__14 = "Restock Job"
     local v__15 = "Workspace"
-    local v__16 = "JobBoardModel"
+    local v__16 = "JobBoardModel" 
     local v__17 = "ClickDetector"
     local v__18 = "Quit"
     local v__19 = "MouseButton1Click"
@@ -475,6 +489,8 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local v__26 = "Cleaning Job"
     local v__27 = "Delivery Job"
     local v__28 = game:GetService("VirtualUser")
+    local partwaitCFrame = CFrame.new(-732.496155, 700, -466.531311)
+    getgenv().tweenspeed = 5000
 
     function SaveSetting()
         warn("Saving Data...")
@@ -573,7 +589,141 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
         end
     end
     end
+    ------------function quan trong-
+        local h = 1/255+.01
+        local s = 1
+        local v = 1
+        local hue = 1/360
+        
+        function CheckDistance()
+            for i,v in pairs(game.Workspace:GetChildren()) do
+                if v.Name == "" and v:FindFirstChild("ClickDetector") and v:FindFirstChild("TBCHardHat") and v:FindFirstChild("Gold Rectangle Shades") and v:FindFirstChild("HumanoidRootPart").CFrame == CFrame.new(-1110.59033, 47.5075226, 74.6555176) then
+                    npcquestlog = v
+                    disnow = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude
+                    if disnow <= 4 then
+                        getgenv().canclick = true
+                        print("true")
+                    elseif disnow >= 4 then
+                        getgenv().canclick = false
+                    end
+                 end
+             end
+        end
+        function getquest()
+            repeat wait()
+                CheckDistance()
+                if getgenv().canclick == true then
+                    if game.Players.LocalPlayer.PlayerGui:FindFirstChild("JobGUI") == nil and game.Players.LocalPlayer.PlayerGui:FindFirstChild("DialogueGUI") == nil then
+                        for i,v in pairs(game.Workspace:GetChildren()) do
+                            if v.Name == "" and v:FindFirstChild("ClickDetector") and v:FindFirstChild("TBCHardHat") and v:FindFirstChild("Gold Rectangle Shades") and v:FindFirstChild("HumanoidRootPart").CFrame == CFrame.new(-1110.59033, 47.5075226, 74.6555176) then
+                                fireclickdetector(v.ClickDetector)
+                            end
+                        end
+                    else
+                        if game.Players.LocalPlayer.PlayerGui:FindFirstChild("DialogueGUI") ~= nil then
+                            if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Text == "Hey.. you got any spare time to do something for me real quick? I'll give ya a couple of bucks (job)" then
+                                if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice:FindFirstChild("a") then
+                                    if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.a.Text == "Sure what is it" then
+                                        for i,v in pairs(getconnections(game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.a.MouseButton1Click)) do
+                                            v.Function()
+                                            wait(.5)
+                                        end
+                                    end
+                                end
+                            elseif game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Text == "I just need you to unload and lift some planks for me.. I uh got something else to do" then
+                                if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice:FindFirstChild("a") then
+                                    if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.a.Text == "Ok I'll do it for you"  then
+                                        for i,v in pairs(getconnections(game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.a.MouseButton1Click)) do
+                                            v.Function()
+                                            wait(.5)
+                                        end 
+                                    end
+                                end
+                            elseif game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Text == "My man! just take those planks behind you and go to the marker." then
+                                if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice:FindFirstChild("End") then
+                                    if game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.End.Text == "Bye" and game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice:FindFirstChild("a") == nil then
+                                        for i,v in pairs(getconnections(game.Players.LocalPlayer.PlayerGui.DialogueGUI.DialogueT.Choice.End.MouseButton1Click)) do
+                                            v.Function()
+                                            wait(.5)
+                                        end 
+                                    end
+                                end
+                            end
+                        end
+                    end
+                else
+                    CheckDistance()
+                end
+            until game.Players.LocalPlayer.PlayerGui:FindFirstChild("JobGUI") ~= nil and game.Players.LocalPlayer.PlayerGui:FindFirstChild("DialogueGUI") == nil
+        end
+        function takewood()
+            for i,v in pairs(game.Workspace.Jobs.ConstructionPlank.PileOfWood:GetChildren()) do
+                if v:IsA("ClickDetector") then
+                    fireclickdetector(v)
+                end
+            end
+        end
+        function checkquest()
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("JobGUI") ~= nil then
+                if game.Players.LocalPlayer.PlayerGui.JobGUI.Frame.Title.Text == "Construction Job" then
+                    if game.Players.LocalPlayer.PlayerGui.JobGUI.Frame.Progress.Text == "Progress: 0/3" then
+                        getgenv().tientrinh = "0/3"
+                    elseif game.Players.LocalPlayer.PlayerGui.JobGUI.Frame.Progress.Text == "Progress: 1/3" then
+                        getgenv().tientrinh = "1/3"
+                    elseif game.Players.LocalPlayer.PlayerGui.JobGUI.Frame.Progress.Text == "Progress: 2/3" then
+                        getgenv().tientrinh = "2/3"
+                    elseif game.Players.LocalPlayer.PlayerGui.JobGUI.Frame.Progress.Text == "Progress: 3/3" then
+                        getgenv().tientrinh = "3/3"
+                    else
+                        getgenv().tientrinh = "finish"
+                    end
+                end
+            end
+        end
+        function TPTween(dist, Speed)
+           local char = game.Players.LocalPlayer.Character
+           local hm = char:WaitForChild("HumanoidRootPart")
+            local info = TweenInfo.new((hm.Position - dist.Position).magnitude / Speed,Enum.EasingStyle.Linear)
+            local tween =  game:service"TweenService":Create(hm, info, {CFrame = dist})
+            tween:Play()
+            tween.Completed:Wait()
+            tween = nil
+        end
+        
+        function createpartwait()
+            if game.Workspace:FindFirstChild("partwait_cofiez") then
+                game.Workspace:FindFirstChild("partwait_cofiez"):Destroy()
+            end
+            local partwait = Instance.new("Part", game.Workspace)
+            partwait.Material = "Neon"
+            partwait.Anchored = true
+            partwait.Size = Vector3.new(10,2,10)
+            partwait.CFrame = partwaitCFrame
+            partwait.Name = "partwait_cofiez"
+            spawn(function()
+            while game.Workspace:FindFirstChild("partwait_cofiez") do wait()
+                if h >= 1 then
+                    hue = -1/360
+                end
+                if h <= 1/360 then
+                hue = 1/360 
+                end
+                h = h+hue
+                color3 = Color3.fromHSV(h,s,v)
+                partwait.Color = color3
+            end     
+        end)
+        end
 
+    ----------
+    function checkdis()
+        local disne = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.JobBoardModel.Board.Position).Magnitude
+        if disne > 5 then
+            getgenv().chophep = false
+        elseif disne < 5 then
+            getgenv().chophep = true
+        end
+    end
     local function v__23()
         local v__24 = (v__2[v__6][v__4][v__7][v__3][v__8] - v__2[v__15][v__16][v__21][v__8])[v__22]
         wait()
@@ -695,6 +845,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local e = a:Tab("Home")
     local b = a:Tab("Main")
     local g = a:Tab("Visual")
+    local h = a:Tab("Travel")
     local c = a:Tab("Misc")
     local f = a:Tab("Setting")
     local d = a:Tab("Credit")
@@ -705,11 +856,12 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end
     e:Label("Use with your own Risk!")
     e:Label("Toggle UI: Right Ctrl")
-    e:Label("Version: Free | 0.2.5")
+    e:Label("Version: Free | 0.2.6")
     e:line()
     e:Label("Dev Logs: (21/03/2022 | DD/MM/YYYY)")
-    e:Label("Fixed Somethings")
-    e:Label("Added Delay Click Time Auto Training")
+    e:Label("(1) Fixed Somethings")
+    e:Label("(2) Added Delay Click Time Auto Training")
+    e:Label("(3) Added Travel")
     --[[e:Button("a", function()
         game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end)
@@ -1059,6 +1211,48 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end
 elseif getgenv().TypeJob == "Fast" then
     getgenv().StartAutoJob = a
+       --[[ spawn(function()
+            repeat wait()
+                checkdis()
+            until getgenv().StartAutoJob == false
+        end)
+        spawn(function()
+            repeat wait()
+                checkdis()
+                wait()
+                if getgenv().chophep == true then wait()
+                    if v__2[v__6][v__4][v__9]:FindFirstChild(v__10) == nil then
+                        fireclickdetector(v__2[v__15][v__16][v__17])
+                    elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__26 then
+                        wait(0.2)
+                        v__25()
+                        wait(0.5)
+                        fireclickdetector(v__2[v__15][v__16][v__17])
+                    elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__27 then
+                        wait(0.2)
+                        v__25()
+                        wait(0.5)
+                        fireclickdetector(v__2[v__15][v__16][v__17])
+                    elseif v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__14 then
+                        getgenv().v___16 = false
+                        wait()
+                        getgenv().v___17 = true
+                    end
+                elseif getgenv().chophep == false then
+                    wait()
+                    checkdis()
+                end
+            until getgenv().StartAutoJob == false
+        end)
+        spawn(function()
+            repeat wait()
+                if v__2[v__6][v__4][v__9]:FindFirstChild(v__10) and v__2[v__6][v__4][v__9][v__10][v__11][v__12][v__13] == v__14 then
+                    TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+
+                end
+            until getgenv().StartAutoJob == false
+        end)]]
+
         --[[if check then
             spawn(function()
             while getgenv().StartAutoJob == true do wait()
@@ -1433,6 +1627,163 @@ end)
     g:Toggle("ESP Store", false, function(a)
         getgenv().ESPStore = a
     end)]]
+    h:Textbox("Player Name", false, function(a)
+        getgenv().plrtravel = a
+    end)
+    h:Button("Goto Player", function()
+        if getgenv().plrtravel then
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(game.Players:FindFirstChild(getgenv().plrtravel).Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(game.Players:FindFirstChild(getgenv().plrtravel).Character.HumanoidRootPart.CFrame, getgenv().tweenspeed)
+        end
+    end)
+    h:line()
+    h:Button("Hospital", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Hospital * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Hospital, getgenv().tweenspeed)
+    end)
+    h:Button("Bank", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Bank * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Bank, getgenv().tweenspeed)
+    end)
+    h:Button("JobBoard1", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(JobBoard1 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(JobBoard1, getgenv().tweenspeed)
+    end)
+    h:Button("JobBoard2", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(JobBoard2 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(JobBoard2, getgenv().tweenspeed)
+    end)
+    h:Button("Res1", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res1 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res1, getgenv().tweenspeed)
+    end)
+    h:Button("Res2", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res2 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res2, getgenv().tweenspeed)
+    end)
+    h:Button("Res3", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res3 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Res3, getgenv().tweenspeed)
+    end)
+    h:Button("Trial", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(dautruong * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(dautruong, getgenv().tweenspeed)
+    end)
+    h:Button("Market1", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Market1 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Market1, getgenv().tweenspeed)
+    end)
+    h:Button("ClothesStore", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(ClothesStore * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(ClothesStore, getgenv().tweenspeed)
+    end)
+    h:Button("Gym1", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym1 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym1, getgenv().tweenspeed)
+    end)
+    h:Button("Gym2", function()
+       --createpartwait()
+       wait()
+       TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym2 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym2, getgenv().tweenspeed)
+    end)
+    h:Button("Gym3", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym3 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym3, getgenv().tweenspeed)
+    end)
+    h:Button("BookStore", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(BookStore * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(BookStore, getgenv().tweenspeed)
+    end)
+    h:Button("Police", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Police * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Police, getgenv().tweenspeed)
+    end)
+    h:Button("House yo mom", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(nhatro * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(nhatro, getgenv().tweenspeed)
+    end)
     c:Toggle("Change Value", false, function(a)
         if a then
         local hb = game:GetService("RunService").Heartbeat
