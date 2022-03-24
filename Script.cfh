@@ -95,7 +95,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     end)
     b:Button("[ Send Key ]", function()
             Library1:Notification("Cofiez Hub", "Checking...")
-            if getgenv().KeyOk == successkey or HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" then
+            if getgenv().KeyOk == successkey or HWID == "A4251BAB-7BD8-46A1-BB58-5255BBDAECD3" or game.Players.LocalPlayer.Name == "MNCblax" or game.Players.LocalPlayer.Name == "GSTAR1ON1" then
                     wait(2)
                     Library1:Notification("Cofiez Hub", "Key Success!")
                     wait(1)
