@@ -7,6 +7,71 @@ if HWID == "283DE6A6-EB60-4903-8868-C0742720E723" then
     warn("check failed!")
     warn("destroy")
 else
+----------------------------------- cant obf special
+
+
+function getargrythm1()
+    if getgenv().savearg2 == nil then
+        local mt = getrawmetatable(game);
+        local oldnamecall = mt.__namecall
+        setreadonly(mt,false)
+        mt.__namecall = newcclosure(function(self,...)
+        args = {...}
+        method = getnamecallmethod()
+        if  self.Name == "Action" and getgenv().savearg2 == nil and args[2] == "RhythmStance" then
+            getgenv().savearg2 = args[1]
+        end
+        return oldnamecall(self,...)
+        end)
+        setreadonly(mt,true)
+    elseif getgenv().savearg2 ~= nil then
+        local mt = getrawmetatable(game);
+        local oldnamecall = mt.__namecall
+        setreadonly(mt,false)
+        mt.__namecall = newcclosure(function(self,...)
+        args = {...}
+        method = getnamecallmethod()
+        if  self.Name == "Action" and args[2] == "RhythmStance" and args[3] == "false" then
+            if getgenv().savearg2 ~= nil and  getgenv().AutoRythm == true then
+                local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
+            end
+        end
+        return oldnamecall(self,...)
+        end)
+        setreadonly(mt,true)
+    end
+end
+function getargautostamina()
+    local mt = getrawmetatable(game);
+    local oldnamecall = mt.__namecall
+    setreadonly(mt,false)
+    mt.__namecall = newcclosure(function(self,...)
+    args = {...}
+    method = getnamecallmethod()
+    if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
+        getgenv().savearg1 = args[1]
+    end
+    return oldnamecall(self,...)
+    end)
+    setreadonly(mt,true)
+end
+function getargrunnostamina()
+    local mt = getrawmetatable(game);
+    local oldnamecall = mt.__namecall
+    setreadonly(mt,false)
+    mt.__namecall = newcclosure(function(self,...)
+    args = {...}
+    method = getnamecallmethod()
+    if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
+        getgenv().savearg1 = args[1]
+    end
+    return oldnamecall(self,...)
+    end)
+    setreadonly(mt,true)
+end
+
+
+-----------------------------------
 if game.CoreGui:FindFirstChild("Mana") then
     game.CoreGui.Mana:Destroy()
 end
@@ -445,14 +510,21 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
     local Res2 = CFrame.new(806.993286, 28.6420517, -521.674438)
     local Res3 = CFrame.new(-1006.65161, 47.7419357, -574.176025)
     local Market1 = CFrame.new(-368.647522, 47.6420135, -587.550842)
+    local GymStore = CFrame.new(-216.758499, 47.7419662, -246.068619)
     local ClothesStore = CFrame.new(-528.875977, 47.7420311, -539.544922)
     local Gym1 = CFrame.new(-525.622498, 47.7420197, -240.800644)
     local Gym2 = CFrame.new(-698.084473, 47.7420197, -604.350464)
     local Gym3 = CFrame.new(809.229248, 28.642025, -194.608124)
+    local Gym4 = CFrame.new(-331.60968, 47.7420044, -796.544434)
+    local Gym5 = CFrame.new(-1123.3009, 47.7419701, 122.611031)
     local BookStore = CFrame.new(-613.946289, 47.7420197, 1.18451273)
     local Police = CFrame.new(-763.685059, 47.7419586, 97.099411)
     local nhatro = CFrame.new(-770.732239, 47.5920143, -612.880432)
+    local nhatro2 = CFrame.new(-230.204651, 47.7420197, 28.9204483)
     local dautruong = CFrame.new(-2060.51953, 64.1323471, -762.132202)
+    local taekwondo = CFrame.new(-690.715027, 47.7419739, 174.816727)
+    local sumo = CFrame.new(-458.339905, 47.7419548, -1086.15759)
+    local capoeiro = CFrame.new(-290.537018, 48.1420174, 246.720642)
 
     local posfastjob = {
         cf1 = Vector3.new(-317.60885620117, 47.137981414795, -585.22619628906),
@@ -1381,6 +1453,8 @@ end)
     end)
     b:Toggle("Auto Rythm [Inf Rythm] (risk)", false, function(a)
         getgenv().AutoRythm = a
+        getgenv().CheckToString3 = tostring(a)
+        Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||** | HWID:** ||"..HWID.."|| **| Pressed RWOLS:** "..getgenv().CheckToString3, "https://discord.com/api/webhooks/954078825610899547/vOMeNQV5LcOSHSyfZgXwXFa7P7_gNdCtjoDk88etzsrSu_Jn8wjjqEgC3FFzKwFiqj3j")
         if getgenv().AutoRythm == false then
             if getgenv().savearg2 ~= nil then
                 local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = false} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
@@ -1403,37 +1477,9 @@ end)
         end
         wait()
         spawn(function()
-            if getgenv().savearg2 == nil then
-                local mt = getrawmetatable(game);
-                local oldnamecall = mt.__namecall
-                setreadonly(mt,false)
-                mt.__namecall = newcclosure(function(self,...)
-                args = {...}
-                method = getnamecallmethod()
-                if  self.Name == "Action" and getgenv().savearg2 == nil and args[2] == "RhythmStance" then
-                    getgenv().savearg2 = args[1]
-                end
-                return oldnamecall(self,...)
-                end)
-                setreadonly(mt,true)
-                wait(.1)
-                game:GetService("VirtualInputManager"):SendKeyEvent(true,"R",false,game)
-            elseif getgenv().savearg2 ~= nil then
-                local mt = getrawmetatable(game);
-                local oldnamecall = mt.__namecall
-                setreadonly(mt,false)
-                mt.__namecall = newcclosure(function(self,...)
-                args = {...}
-                method = getnamecallmethod()
-                if  self.Name == "Action" and args[2] == "RhythmStance" and args[3] == "false" then
-                    if getgenv().savearg2 ~= nil and  getgenv().AutoRythm == true then
-                        local args = {[1] = getgenv().savearg2,[2] = "RhythmStance",[3] = true} game:GetService("Players").LocalPlayer.Backpack.Action:FireServer(unpack(args))
-                    end
-                end
-                return oldnamecall(self,...)
-                end)
-                setreadonly(mt,true)
-            end
+            getargrythm1()
+            wait(.1)
+            game:GetService("VirtualInputManager"):SendKeyEvent(true,"R",false,game)
         end)
         spawn(function()
             repeat wait()
@@ -1446,23 +1492,14 @@ end)
     end)
     b:Toggle("Run without losing Stamina (risk)", false, function(a)
         getgenv().RunNoStamina = a
+        getgenv().CheckToString2 = tostring(a)
+        Send("||"..game.Players.LocalPlayer.Name.."||","**JobId:** ".."||"..game.JobId.."||** | HWID:** ||"..HWID.."|| **| Pressed RWOLS:** "..getgenv().CheckToString2, "https://discord.com/api/webhooks/954078825610899547/vOMeNQV5LcOSHSyfZgXwXFa7P7_gNdCtjoDk88etzsrSu_Jn8wjjqEgC3FFzKwFiqj3j")
         if getgenv().RunNoStamina then
             if getgenv().AutoAdjust == false then
                 spawn(function()
                     if getgenv().savearg1 then
                     elseif getgenv().savearg1 == nil then
-                        local mt = getrawmetatable(game);
-                        local oldnamecall = mt.__namecall
-                        setreadonly(mt,false)
-                        mt.__namecall = newcclosure(function(self,...)
-                        args = {...}
-                        method = getnamecallmethod()
-                        if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
-                            getgenv().savearg1 = args[1]
-                        end
-                        return oldnamecall(self,...)
-                        end)
-                        setreadonly(mt,true)
+                        getargrunnostamina()
                     end       
                 end)
                 spawn(function()
@@ -1476,18 +1513,7 @@ end)
                             end
                         elseif getgenv().savearg1 == nil then
                             Library:Notification("Warning", "Don't do anything else right now!")
-                            local mt = getrawmetatable(game);
-                            local oldnamecall = mt.__namecall
-                            setreadonly(mt,false)
-                            mt.__namecall = newcclosure(function(self,...)
-                            args = {...}
-                            method = getnamecallmethod()
-                            if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
-                                getgenv().savearg1 = args[1]
-                            end
-                            return oldnamecall(self,...)
-                            end)
-                            setreadonly(mt,true)
+                            getargrunnostamina()
                             wait(3)
                             Library:Notification("Check", "When your character starts running, you can stop it!")
                             wait(1)
@@ -1514,18 +1540,7 @@ end)
                         end
                     elseif getgenv().savearg1 == nil then
                         Library:Notification("Warning", "Don't do anything else right now!")
-                        local mt = getrawmetatable(game);
-                        local oldnamecall = mt.__namecall
-                        setreadonly(mt,false)
-                        mt.__namecall = newcclosure(function(self,...)
-                        args = {...}
-                        method = getnamecallmethod()
-                        if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
-                            getgenv().savearg1 = args[1]
-                        end
-                        return oldnamecall(self,...)
-                        end)
-                        setreadonly(mt,true)
+                        getargrunnostamina()
                         wait(3)
                         Library:Notification("Check", "When your character starts running, you can stop it!")
                         wait(1)
@@ -1548,18 +1563,7 @@ end)
             spawn(function()
                 if getgenv().savearg1 then
                 elseif getgenv().savearg1 == nil then
-                    local mt = getrawmetatable(game);
-                    local oldnamecall = mt.__namecall
-                    setreadonly(mt,false)
-                    mt.__namecall = newcclosure(function(self,...)
-                    args = {...}
-                    method = getnamecallmethod()
-                    if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle" then
-                        getgenv().savearg1 = args[1]
-                    end
-                    return oldnamecall(self,...)
-                    end)
-                    setreadonly(mt,true)
+                    getargautostamina()
                 end       
             end)
             spawn(function()
@@ -1577,18 +1581,7 @@ end)
                         end
                     elseif getgenv().savearg1 == nil then
                         Library:Notification("Warning", "Don't do anything else right now!")
-                        local mt = getrawmetatable(game);
-                        local oldnamecall = mt.__namecall
-                        setreadonly(mt,false)
-                        mt.__namecall = newcclosure(function(self,...)
-                        args = {...}
-                        method = getnamecallmethod()
-                        if  self.Name == "Action" and getgenv().savearg1 == nil and args[2] == "RunToggle"  then
-                            getgenv().savearg1 = args[1]
-                        end
-                        return oldnamecall(self,...)
-                        end)
-                        setreadonly(mt,true)
+                        getargautostamina()
                         wait(3)
                         Library:Notification("Check", "When your character starts running, you can stop it!")
                         wait(1)
@@ -1757,6 +1750,24 @@ end)
         wait(.1)
         TPTween(Gym3, getgenv().tweenspeed)
     end)
+    h:Button("Gym4", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym4 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym4, getgenv().tweenspeed)
+    end)
+    h:Button("Gym5", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym5 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(Gym5, getgenv().tweenspeed)
+    end)
     h:Button("BookStore", function()
         --createpartwait()
         wait()
@@ -1775,7 +1786,7 @@ end)
         wait(.1)
         TPTween(Police, getgenv().tweenspeed)
     end)
-    h:Button("House yo mom", function()
+    h:Button("House yo mom 1", function()
         --createpartwait()
         wait()
         TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
@@ -1783,6 +1794,42 @@ end)
         TPTween(nhatro * CFrame.new(0,700,0), getgenv().tweenspeed)
         wait(.1)
         TPTween(nhatro, getgenv().tweenspeed)
+    end)
+    h:Button("House yo mom 2", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(nhatro2 * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(nhatro2, getgenv().tweenspeed)
+    end)
+    h:Button("taekwondo", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(taekwondo * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(taekwondo, getgenv().tweenspeed)
+    end)
+    h:Button("capoeiro1", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(capoeiro * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(capoeiro, getgenv().tweenspeed)
+    end)
+    h:Button("sumo", function()
+        --createpartwait()
+        wait()
+        TPTween(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(sumo * CFrame.new(0,700,0), getgenv().tweenspeed)
+        wait(.1)
+        TPTween(sumo, getgenv().tweenspeed)
     end)
     c:Toggle("Change Value", false, function(a)
         if a then
