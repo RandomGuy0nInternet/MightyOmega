@@ -10,7 +10,6 @@ if HWID == "283DE6A6-EB60-4903-8868-C0742720E723" then
 else
 ----------------------------------- cant obf special
 
-
 function getargrythm1()
     if getgenv().savearg2 == nil then
         local mt = getrawmetatable(game);
@@ -1672,14 +1671,14 @@ end)
             UpdatePlayerChams()
         until getgenv().ESPPlayer == false
     end)
-    g:Toggle("Rainbow Health")
+    --[[g:Toggle("Rainbow Health")
     g:Toggle("Rainbow Stamina")
     g:Toggle("Rainbow Stomach")
     g:Toggle("Rainbow Calories")
     g:Toggle("Rainbow Name")
     g:Toggle("Rainbow Cash")
     g:Toggle("Rainbow Trait")
-    g:Toggle("Rainbow Body Fatigue")
+    g:Toggle("Rainbow Body Fatigue")]]
     --[[g:Toggle("ESP Npc", false, function(a)
         getgenv().ESPNpc = a
     end)
